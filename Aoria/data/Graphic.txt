@@ -1,0 +1,4 @@
+BACKGROUND:
+  name: background
+  url: https://pixabay.com/p-1409125/?no_redirect
+  type: png
