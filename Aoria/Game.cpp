@@ -7,7 +7,7 @@ Game::Game()
 	sf::ContextSettings settings;
 	settings.antialiasingLevel = 8;
 	window.create(sf::VideoMode(width, height), "Aoria ", sf::Style::Default, settings);
-	window.setFramerateLimit(120);
+	window.setFramerateLimit(60);
 
 	//------------- Font --------------------------//
 	fileMenager.loadFont("data/Fonts/good times/good times rg.ttf");
@@ -16,7 +16,7 @@ Game::Game()
 	fileMenager.LoadTexture("background", "data/background-1409125_1280.png");
 	fileMenager.LoadTexture("player", "data/Player/ship.png");
 	fileMenager.LoadTexture("blueShip", "data/Si/bluemoob.png");
-
+	fileMenager.LoadTexture("kineticBullet", "data/Kinetic/Kinetic.png");
 	gameState = MENU;
 	runGame();
 }
