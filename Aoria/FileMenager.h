@@ -21,7 +21,7 @@ public:
 			std::cout << "Load File: Aoria.exe Position/" + Pos << std::endl;
 		}
 	}
-	sf::Texture& getRef(const std::string& texture) {
+	sf::Texture& getRef(const std::string &texture) {
 
 		return this->MapTexture.at(texture);
 	}

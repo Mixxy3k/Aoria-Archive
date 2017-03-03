@@ -1,59 +1,82 @@
 #include "Si.h"
 
+Si::Si(sf::Texture & texture)
+{
+	moobSprite.setTexture(texture);
+	moobSprite.setPosition(500, 250);
+	moobSprite.setOrigin(moobSprite.getGlobalBounds().width / 2, moobSprite.getGlobalBounds().height / 2);
+}
+
 void Si::generateVector()
 {
 	if (newMove == true) {
 		//----------- Set time
 		float a = (rand() % 5) + 1;
 		timeToNewMove = 2.f / a;
-		//----------- Attack Configuration
-		float b = (rand() % 10) + 1;
-		//----------- Set direction
-		rotate = (rand() % 360);
+
+		//----------- Draw position
+		int b = (rand() % 3) + 1;
+		switch (b)
+		{
+		case 1:
+			vector = UP;
+			break;
+		case 2:
+			vector = DOWN;
+			break;
+		case 3:
+			vector = LEFT;
+			break;
+		case 4:
+			vector = RIGHT;
+		default:
+			break;
+		}
+
 		//----------- Restart Clock
-		moobSprite.setRotation(rotate);
 		moveClock.restart();
+
+		//----------
 		newMove = false;
  	}
-	if (newMove == false /*&& attackPlayer == true*/) {
-		//---------- Set Move
-		float vx = sin((rotate * M_PI) / 180.0f);
-
-		float vy = -cos((rotate * M_PI) / 180.0f);
-		moobSprite.move(sf::Vector2f(vx, vy)*5.f);
+	if (newMove == false) {
+		// -------- Move a sprite
+		switch (vector)
+		{
+		case UP:
+			moobSprite.move(sf::Vector2f(0.f, -1.f) * speed);
+			break;
+		case DOWN:
+			moobSprite.move(sf::Vector2f(0.f, 1.f) * speed);
+			break;
+		case LEFT:
+			moobSprite.move(sf::Vector2f(-1.f, 0.f) * speed);
+			break;
+		case RIGHT:
+			moobSprite.move(sf::Vector2f(1.f, 0.f) * speed);
+		default:
+			break;
+		}
 		// ---------- Orgins of move
 		if (moobSprite.getPosition().x <= 0) {
-			rotate = 90;
-			moobSprite.setRotation(rotate);
+			vector = RIGHT;
 		}
 		if (moobSprite.getPosition().x >= 1024) {
-			rotate = 270;
-			moobSprite.setRotation(rotate);
+			vector = LEFT;
 		}
 		if (moobSprite.getPosition().y <= 0) {
-			rotate = 180;
-			moobSprite.setRotation(rotate);
+			vector = DOWN;
 		}
 		if (moobSprite.getPosition().y >= 512 / 1.5) {
-			rotate = 0;
-			moobSprite.setRotation(rotate);
-		}
-		
+			vector = UP;
+		}				
 	}
 	if (moveClock.getElapsedTime().asSeconds() >= timeToNewMove) {
 		newMove = true;
 	}
 }
 
-void Si::attack(sf::Vector2f &pPos)
+void Si::attack()
 {
-	newMove = false;
-	attackPlayer = true;
-	if (newMove == false && attackPlayer == true) {
-		sf::Vector2f mPos = moobSprite.getPosition();
-		// mPos A                                              pPos B
-		float Y = ((mPos.y - pPos.y) / (mPos.x - pPos.x)*mPos.x) + ((mPos.y - ((mPos.y - pPos.y) / (mPos.x - pPos.x)))*mPos.x);
-		moobSprite.move(sf::Vector2f(mPos.x, Y));
-		std::cout << "Y = " << Y << std::endl;
-	}
+	// Here will be a Bullet System
 }

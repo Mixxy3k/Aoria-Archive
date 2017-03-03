@@ -9,5 +9,5 @@ Player::Player(sf::Texture & texture)
 
 void Player::move(float X, float Y)
 {
-	playerSprite.move(sf::Vector2f(X,Y) * 400.f / 120.f);
+	playerSprite.move(sf::Vector2f(X,Y) * 5.f);
 }
