@@ -36,7 +36,6 @@ public:
 		hp = hp - substract;
 	}
 	int getHp() {
-		std::cout << hp << std::endl;
 		return hp;
 	}
 };

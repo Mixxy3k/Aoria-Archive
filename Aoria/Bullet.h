@@ -5,9 +5,11 @@ public:
 	Bullet(sf::Texture &texture, sf::Vector2f &pos);
 	bool colision(sf::FloatRect &object);
 	virtual void move() = 0;
-		virtual void draw(sf::RenderWindow &win) const {
+	virtual bool deleteBullet() = 0;
+	virtual void draw(sf::RenderWindow &win) const {
 			win.draw(bulletSprite);
 	}
+	
 protected:
 	sf::Sprite bulletSprite;
 	sf::Clock bulletClock;

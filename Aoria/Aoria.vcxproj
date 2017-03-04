@@ -22,6 +22,7 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="InfoTab.cpp" />
     <ClCompile Include="Kinetic.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -33,6 +34,7 @@
     <ClInclude Include="Engine.h" />
     <ClInclude Include="FileMenager.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="InfoTab.h" />
     <ClInclude Include="Kinetic.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Si.h" />

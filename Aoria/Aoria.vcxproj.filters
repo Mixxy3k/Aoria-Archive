@@ -36,6 +36,9 @@
     <ClCompile Include="Kinetic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="InfoTab.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
@@ -60,6 +63,9 @@
       <Filter>Resource Files</Filter>
     </ClInclude>
     <ClInclude Include="Kinetic.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InfoTab.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
   </ItemGroup>

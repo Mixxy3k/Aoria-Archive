@@ -6,6 +6,7 @@
 #include "BlueMoob.h"
 #include "FileMenager.h"
 #include "Kinetic.h"
+#include "InfoTab.h"
 
 class Engine {
 public:
@@ -14,6 +15,7 @@ public:
 private:
 	sf::RenderWindow *window;	
 	FileMenager *fileMenager;
+	InfoBar * infoBar;
 
 	Player *player;
 

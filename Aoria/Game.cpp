@@ -17,6 +17,8 @@ Game::Game()
 	fileMenager.LoadTexture("player", "data/Player/ship.png");
 	fileMenager.LoadTexture("blueShip", "data/Si/bluemoob.png");
 	fileMenager.LoadTexture("kineticBullet", "data/Kinetic/Kinetic.png");
+	fileMenager.LoadTexture("topLeftBar", "data/Bar/Top Left Bar.png");
+	fileMenager.LoadTexture("topRightBar", "data/Bar/Top Right Bar.png");
 	gameState = MENU;
 	runGame();
 }
