@@ -12,7 +12,7 @@ void Si::generateVector()
 	if (newMove == true) {
 		//----------- Set time
 		float a = (rand() % 5) + 1;
-		timeToNewMove = 2.f / a;
+		timeToNewMove = 3.f / a;
 
 		//----------- Draw position
 		int b = (rand() % 3) + 1;

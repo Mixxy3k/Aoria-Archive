@@ -5,10 +5,9 @@ Engine::Engine(sf::RenderWindow & win, FileMenager &fm)
 {
 	window = &win;
 	fileMenager = &fm;
-	moob.push_back(new BlueMoob(fileMenager->getRef("blueShip")));
-	moob.push_back(new BlueMoob(fileMenager->getRef("blueShip")));
 	player = new Player(fileMenager->getRef("player"));
 	infoBar = new InfoBar(fileMenager->getRef("topLeftBar"), fileMenager->getFont());
+	lvl = new Lvl();
 }
 //----------- Main Loop of game ------------
 void Engine::runEngine()
@@ -29,14 +28,14 @@ void Engine::runEngine()
 void Engine::draw()
 {
 	window->clear(bg);
-	window->draw(*player);
-	for (auto obj : moob) {
-		obj->draw(*window);
-	}
-	for (auto obj: playerBullet)
+	for (auto obj : allBullet)
 	{
 		obj->draw(*window);
 	}
+	for (auto obj : moob) {
+		obj->draw(*window);
+	}
+	window->draw(*player);
 	infoBar->draw(*window);
 	window->display();
 }
@@ -53,41 +52,46 @@ void Engine::updateLogic()
 		if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape))
 			window->close();
 	}
+	// -------------- Lvl menager
+	if (moob.empty()) {
+		lvl->lvl++;
+		lvl->lvlskl();
+		for (int i = 0; i < lvl->BlueMoobResp; i++) {
+			moob.push_back(new BlueMoob(fileMenager->getRef("blueShip")));
+		}
+	}
 	// -------------- Control Player
 	int X = player->getPlaerPosition().x;
-	int Y = player->getPlaerPosition().y;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && Y > 64) {
-		player->move(0, -1);
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) && Y < window->getSize().y) {
-		player->move(0, 1);
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && X > 64) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && X > 32) {
 		player->move(-1, 0);
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && X < window->getSize().x) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && X < window->getSize().x - 32) {
 		player->move(1, 0);
 	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && player->bulletCoolDown()) {
-		playerBullet.push_back(new KineticBullet(fileMenager->getRef("kineticBullet"), player->getPlaerPosition() - sf::Vector2f(25,0))); // right
-		playerBullet.push_back(new KineticBullet(fileMenager->getRef("kineticBullet"),player->getPlaerPosition())); // center
-		playerBullet.push_back(new KineticBullet(fileMenager->getRef("kineticBullet"), player->getPlaerPosition() - sf::Vector2f(-25, 0))); // left
-
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && player->bulletCoolDown() == true) {
+		allBullet.push_back(new KineticBullet(fileMenager->getRef("kineticBullet"), player->getPlaerPosition() - sf::Vector2f(25, 0))); // right
+		//allBullet.push_back(new KineticBullet(fileMenager->getRef("kineticBullet"),player->getPlaerPosition())); // center
+		allBullet.push_back(new KineticBullet(fileMenager->getRef("kineticBullet"), player->getPlaerPosition() - sf::Vector2f(-25, 0))); // left
+		player->resetBulltClock();
 	}
 	//------------- Si Move
 	for (auto obj : moob) {
 		obj->generateVector();
 		obj->attack();
+		if (obj->timer()) {
+			allBullet.push_back(new Laser(fileMenager->getRef("laser"), obj->getPos()));
+		}
 	}
 	//------------- Moob - Bullet interaction
 	int i = 0;
-	for (int j = 0; j < playerBullet.size();j++) {
+	bool del = false;
+	for (int j = 0; j < allBullet.size(); j++) {
 		//move bullet
-		playerBullet[j]->move();
-		for (int i = 0; i < moob.size(); i++){
+		allBullet[j]->move();
+		for (int i = 0; i < moob.size(); i++) {
 			//colision
-			if (playerBullet[j]->colision(moob[i]->getMoobRect())) {
+			if (allBullet[j]->colision(moob[i]->getMoobRect()) && allBullet[j]->owner == allBullet[j]->Player) {
 				moob[i]->substractHP(moob[i]->dmg);
 				//slain?
 				if (moob[i]->getHp() < 0) {
@@ -97,13 +101,11 @@ void Engine::updateLogic()
 				}
 			}
 		}
-		if (playerBullet[j]->deleteBullet()) {
-			playerBullet.erase(playerBullet.begin() + j);
+		if (allBullet[j]->deleteBullet() || del) {
+			allBullet.erase(allBullet.begin() + j);
 		}
 	}
-	float hp = player->getHp();
-	float lvl = 1;
-	infoBar->SetBar1("Player HP: ", hp);
-	infoBar->SetBar2("Lvl: ", lvl);
+	infoBar->SetBar1("Moobs: ", moob.size());
+	infoBar->SetBar2("Lvl: ", lvl->lvl);
 }
 

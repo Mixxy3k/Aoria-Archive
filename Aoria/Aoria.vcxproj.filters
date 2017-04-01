@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Bullet Player">
+      <UniqueIdentifier>{03fd10ab-a88f-4f09-a71f-a9281c115024}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Bullet Si">
+      <UniqueIdentifier>{03a46ad7-234f-4f4c-9f9b-d612ab7141e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Bullet Player">
+      <UniqueIdentifier>{a4f15c12-46a4-4081-86d0-61f8d99a1b6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Bullet Si">
+      <UniqueIdentifier>{d0d39528-62c4-458c-a207-10bbf09a146a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -33,11 +45,17 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Kinetic.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="InfoTab.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueMoob.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Kinetic.cpp">
+      <Filter>Source Files\Bullet Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Laser.cpp">
+      <Filter>Source Files\Bullet Si</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -62,11 +80,17 @@
     <ClInclude Include="Bullet.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
-    <ClInclude Include="Kinetic.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
     <ClInclude Include="InfoTab.h">
       <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Lvl.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Kinetic.h">
+      <Filter>Resource Files\Bullet Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Laser.h">
+      <Filter>Resource Files\Bullet Si</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

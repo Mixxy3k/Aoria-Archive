@@ -7,5 +7,7 @@ public:
 		:Si(texture)
 	{
 		dmg = 2;
+		hp = 2;
 	}
+	virtual bool timer();
 };

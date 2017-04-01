@@ -8,8 +8,18 @@ public:
 		return playerSprite.getPosition();
 	}
 	bool bulletCoolDown();
+	void resetBulltClock() {
+		time = sf::Time::Zero;
+		bulletClock.restart();
+	}
 	float getHp() {
 		return hp;
+	}
+	void substarctHP(float dmg) {
+		hp -= dmg;
+	}
+	sf::FloatRect getRect() {
+		return playerSprite.getGlobalBounds();
 	}
 private:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const {
@@ -17,10 +27,10 @@ private:
 	}
 	sf::Sprite playerSprite;
 	sf::Clock bulletClock;
-	float cd = 1.f;
 	sf::Time time;
 
+	float cd;
 	int hp = 100;
-	float Speed = 200.f;
+	float Speed = 290.f;
 	std::string name = "[]";
 };

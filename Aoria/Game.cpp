@@ -19,6 +19,7 @@ Game::Game()
 	fileMenager.LoadTexture("kineticBullet", "data/Kinetic/Kinetic.png");
 	fileMenager.LoadTexture("topLeftBar", "data/Bar/Top Left Bar.png");
 	fileMenager.LoadTexture("topRightBar", "data/Bar/Top Right Bar.png");
+	fileMenager.LoadTexture("laser", "data/Laser/Laser.png");
 	gameState = MENU;
 	runGame();
 }
@@ -54,6 +55,8 @@ void Game::menu()
 
 	using namespace std;
 	using namespace sf;
+	sf::Sprite bg;
+	bg.setTexture(fileMenager.getRef("background"));
 	Text title("Aoria", fileMenager.getFont(), 80);
 	title.setStyle(Text::Bold);
 
@@ -108,7 +111,7 @@ void Game::menu()
 			else tekst[i].setFillColor(Color::White);
 
 			window.clear();
-
+			window.draw(bg);
 			window.draw(title);
 			for (int i = 0; i < ile; i++)
 				window.draw(tekst[i]);

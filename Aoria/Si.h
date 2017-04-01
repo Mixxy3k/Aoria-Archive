@@ -15,8 +15,10 @@ protected:
 	float speed = 7.f;
 	int hp = 1;
 	float timeToNewMove;
-	float attackTime = 4.f;
+	float attackTime = 1.f;
+
 	sf::Clock moveClock;
+	sf::Clock bulletClock;
 	bool newMove = true;
 	sf::Sprite moobSprite;
 
@@ -29,6 +31,10 @@ public:
 	}
 	void generateVector();
 	void attack();
+	sf::Vector2f getPos() {
+		return moobSprite.getPosition();
+	}
+	virtual bool timer() = 0;
 	sf::FloatRect getMoobRect() {
 		return moobSprite.getGlobalBounds();
 	}

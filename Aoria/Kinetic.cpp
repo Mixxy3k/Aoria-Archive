@@ -1,7 +1,7 @@
 #include "Kinetic.h"
 
 KineticBullet::KineticBullet(sf::Texture &texture, sf::Vector2f &pos)
-	:Bullet(texture, pos)
+	:Bullet(texture, pos, Player)
 {
 	bulletClock.restart();
 }
@@ -14,7 +14,7 @@ void KineticBullet::move()
 bool KineticBullet::deleteBullet()
 {
 	time = bulletClock.getElapsedTime();
-	if (time.asSeconds() >= 5.f) {
+	if (time.asSeconds() >= 4.f) {
 		return true;
 	}
 	return false;

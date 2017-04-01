@@ -19,11 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BlueMoob.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="InfoTab.cpp" />
     <ClCompile Include="Kinetic.cpp" />
+    <ClCompile Include="Laser.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Si.cpp" />
@@ -36,6 +38,8 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="InfoTab.h" />
     <ClInclude Include="Kinetic.h" />
+    <ClInclude Include="Laser.h" />
+    <ClInclude Include="Lvl.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Si.h" />
   </ItemGroup>

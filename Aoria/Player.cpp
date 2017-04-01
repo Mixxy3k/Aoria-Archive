@@ -4,7 +4,8 @@ Player::Player(sf::Texture & texture)
 {
 	playerSprite.setTexture(texture);
 	playerSprite.setOrigin(sf::Vector2f(playerSprite.getGlobalBounds().width/2, playerSprite.getGlobalBounds().height/2));
-	playerSprite.setPosition(300, 300);
+	playerSprite.setPosition(500, 430);
+	cd = 0.3;
 }
 
 void Player::move(float X, float Y)
@@ -16,7 +17,6 @@ bool Player::bulletCoolDown()
 {
 	time = bulletClock.getElapsedTime();
 	if (time.asSeconds() >= cd) {
-		bulletClock.restart();
 		return true;
 	}
 	return false;

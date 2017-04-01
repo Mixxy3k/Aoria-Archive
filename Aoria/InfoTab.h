@@ -4,8 +4,8 @@
 class InfoBar {
 public:
 	InfoBar(sf::Texture &texture, sf::Font &f);
-	void SetBar1(const std::string &msg, float &number);
-	void SetBar2(const std::string &msg, float &number);
+	void SetBar1(const std::string &msg,const float &number);
+	void SetBar2(const std::string &msg,const float &number);
 	void draw(sf::RenderWindow &win);
 private:
 	sf::Font font;
