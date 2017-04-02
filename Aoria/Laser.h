@@ -6,6 +6,6 @@ public:
 	virtual void move();
 	virtual bool deleteBullet();
 private:
-	float speed = 5.f;
+	float speed = 12.f;
 	//dmg = 4.f;
 };

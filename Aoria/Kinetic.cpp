@@ -14,7 +14,7 @@ void KineticBullet::move()
 bool KineticBullet::deleteBullet()
 {
 	time = bulletClock.getElapsedTime();
-	if (time.asSeconds() >= 4.f) {
+	if (time.asSeconds() >= 2.f) {
 		return true;
 	}
 	return false;

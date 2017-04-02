@@ -15,21 +15,22 @@ void Si::generateVector()
 		timeToNewMove = 3.f / a;
 
 		//----------- Draw position
-		int b = (rand() % 3) + 1;
+		int b = (rand() % 3);
 		switch (b)
 		{
-		case 1:
+		case 0:
 			vector = UP;
 			break;
-		case 2:
-			vector = DOWN;
+		case 1:
+			vector = RIGHT;
 			break;
-		case 3:
+		case 2:
 			vector = LEFT;
 			break;
-		case 4:
-			vector = RIGHT;
+		case 3:
+			vector = DOWN;
 		default:
+			vector = STAY;
 			break;
 		}
 
@@ -79,4 +80,5 @@ void Si::generateVector()
 void Si::attack()
 {
 	// Here will be a Bullet System
+	// Or not?
 }

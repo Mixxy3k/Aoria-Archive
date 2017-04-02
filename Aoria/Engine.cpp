@@ -6,7 +6,9 @@ Engine::Engine(sf::RenderWindow & win, FileMenager &fm)
 	window = &win;
 	fileMenager = &fm;
 	player = new Player(fileMenager->getRef("player"));
-	infoBar = new InfoBar(fileMenager->getRef("topLeftBar"), fileMenager->getFont());
+	leftInfoBar = new InfoBar(fileMenager->getRef("topLeftBar"), fileMenager->getFont(), leftInfoBar->LEFT,sf::Vector2f(0,0));
+	rightInfoBar = new InfoBar(fileMenager->getRef("topRightBar"), fileMenager->getFont(), rightInfoBar->RIGHT, sf::Vector2f(1024, 0));
+
 	lvl = new Lvl();
 }
 //----------- Main Loop of game ------------
@@ -36,7 +38,8 @@ void Engine::draw()
 		obj->draw(*window);
 	}
 	window->draw(*player);
-	infoBar->draw(*window);
+	rightInfoBar->draw(*window);
+	leftInfoBar->draw(*window);
 	window->display();
 }
 //--------- Upate logic
@@ -92,7 +95,8 @@ void Engine::updateLogic()
 		for (int i = 0; i < moob.size(); i++) {
 			//colision
 			if (allBullet[j]->colision(moob[i]->getMoobRect()) && allBullet[j]->owner == allBullet[j]->Player) {
-				moob[i]->substractHP(moob[i]->dmg);
+				moob[i]->substractHP(player->dmg);
+				del = true;
 				//slain?
 				if (moob[i]->getHp() < 0) {
 					//kill moob
@@ -100,12 +104,22 @@ void Engine::updateLogic()
 					return;
 				}
 			}
+			if (allBullet[j]->colision(player->getRect()) && allBullet[j]->owner == allBullet[j]->SI) {
+				player->substarctHP(moob[i]->dmg);
+				del = true;
+				if (player->getHp() <= 0) {
+					//DIE
+				}
+			}
 		}
 		if (allBullet[j]->deleteBullet() || del) {
 			allBullet.erase(allBullet.begin() + j);
 		}
 	}
-	infoBar->SetBar1("Moobs: ", moob.size());
-	infoBar->SetBar2("Lvl: ", lvl->lvl);
+	leftInfoBar->SetBar1("Health: ", player->getHp());
+	leftInfoBar->SetBar2("Lvl: ", lvl->lvl);
+
+	rightInfoBar->SetBar1("Bullets: ", allBullet.size());
+	rightInfoBar->SetBar2("SI: ", moob.size());
 }
 

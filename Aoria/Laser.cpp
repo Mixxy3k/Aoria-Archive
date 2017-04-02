@@ -1,7 +1,7 @@
 #include "Laser.h"
 
 Laser::Laser(sf::Texture & texture, sf::Vector2f & pos)
-	:Bullet(texture, pos, Si_Blue)
+	:Bullet(texture, pos, SI)
 {
 	bulletClock.restart();
 }
@@ -14,7 +14,7 @@ void Laser::move()
 bool Laser::deleteBullet()
 {
 	time = bulletClock.getElapsedTime();
-	if (time.asSeconds() >= 3.f) {
+	if (time.asSeconds() >= 2.f) {
 		return true;
 	}
 	return false;

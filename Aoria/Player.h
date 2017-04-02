@@ -12,15 +12,16 @@ public:
 		time = sf::Time::Zero;
 		bulletClock.restart();
 	}
-	float getHp() {
+	int getHp() {
 		return hp;
 	}
-	void substarctHP(float dmg) {
+	void substarctHP(int dmg) {
 		hp -= dmg;
 	}
 	sf::FloatRect getRect() {
 		return playerSprite.getGlobalBounds();
 	}
+	int dmg = 1;
 private:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const {
 		target.draw(playerSprite, states);

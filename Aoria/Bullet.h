@@ -2,7 +2,7 @@
 #include <SFML\Graphics.hpp>
 class Bullet {
 public:
-	enum Owner { Player = 0, Si_Blue = 1 };
+	enum Owner { Player = 0, SI = 1 };
 	Owner owner;
 	Bullet(sf::Texture &texture, sf::Vector2f &pos, Owner own);
 	bool colision(sf::FloatRect &object);

@@ -17,12 +17,12 @@ public:
 private:
 	sf::RenderWindow *window;	
 	FileMenager *fileMenager;
-	InfoBar * infoBar;
+	InfoBar * rightInfoBar;
+	InfoBar * leftInfoBar;
+
 	Lvl *lvl;
 
 	Player *player;
-
-	enum owners{PL=1,SI=0};
 
 	typedef std::vector <Bullet *> bullet;
 	std::vector <Si *> moob;
