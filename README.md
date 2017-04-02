@@ -1,3 +1,7 @@
+# Aoria 1.2.1
+- Change variables for move (now it's more chaotic)
+- Repair bullet move
+
 # Aoria 1.2
 - Add InfoBar
  - HP
