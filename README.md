@@ -1,6 +1,7 @@
 # Aoria 1.2.1
-- Change variables for move (now it's more chaotic)
+- Change variables for SI move (now it's more chaotic)
 - Repair bullet move
+- Repair colision
 
 # Aoria 1.2
 - Add InfoBar
