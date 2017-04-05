@@ -6,8 +6,9 @@ public:
 	BlueMoob(sf::Texture &texture)
 		:Si(texture)
 	{
-		dmg = 2;
+		dmg = 1;
 		hp = 2;
+		Si::speed = 3.f;
 	}
 	virtual bool timer();
 };

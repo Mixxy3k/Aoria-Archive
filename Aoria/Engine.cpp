@@ -14,16 +14,15 @@ Engine::Engine(sf::RenderWindow & win, FileMenager &fm)
 //----------- Main Loop of game ------------
 void Engine::runEngine()
 {
-	while (window->isOpen())
+	while (goMenu == false)
 	{
 		timeSinceLastUpdate += clock.restart();
 		while (timeSinceLastUpdate > TimePerFrame)
 		{
 			updateLogic();
 			timeSinceLastUpdate -= TimePerFrame;
-			draw();
-
 		}
+		draw();
 	}
 }
 //--------- Draw Graphic
@@ -53,7 +52,7 @@ void Engine::updateLogic()
 			window->close();
 		// The escape key was pressed
 		if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape))
-			window->close();
+			goMenu = true;
 	}
 	// -------------- Lvl menager
 	if (moob.empty()) {
@@ -73,17 +72,16 @@ void Engine::updateLogic()
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && player->bulletCoolDown() == true) {
-		allBullet.push_back(new KineticBullet(fileMenager->getRef("kineticBullet"), player->getPlaerPosition() - sf::Vector2f(25, 0))); // right
-		//allBullet.push_back(new KineticBullet(fileMenager->getRef("kineticBullet"),player->getPlaerPosition())); // center
-		allBullet.push_back(new KineticBullet(fileMenager->getRef("kineticBullet"), player->getPlaerPosition() - sf::Vector2f(-25, 0))); // left
+		allBullet.push_back(new KineticBullet(fileMenager->getRef("kineticBullet"), player->getPlaerPosition() - sf::Vector2f(25, 0), player->dmg)); // right
+		allBullet.push_back(new KineticBullet(fileMenager->getRef("kineticBullet"), player->getPlaerPosition(), player->dmg)); // center
+		allBullet.push_back(new KineticBullet(fileMenager->getRef("kineticBullet"), player->getPlaerPosition() - sf::Vector2f(-25, 0), player->dmg)); // left
 		player->resetBulltClock();
 	}
 	//------------- Si Move
-	for (auto obj : moob) {
-		obj->generateVector();
-		obj->attack();
-		if (obj->timer()) {
-			allBullet.push_back(new Laser(fileMenager->getRef("laser"), obj->getPos()));
+	for (int i = 0; i < moob.size(); i++) {
+		moob[i]->generateVector();
+		if (moob[i]->timer()) {
+			allBullet.push_back(new Laser(fileMenager->getRef("laser"), moob[i]->getPos(), moob[i]->dmg));
 		}
 	}
 	//------------- Moob - Bullet interaction
@@ -95,24 +93,23 @@ void Engine::updateLogic()
 		for (int i = 0; i < moob.size(); i++) {
 			//colision
 			if (allBullet[j]->colision(moob[i]->getMoobRect()) && allBullet[j]->owner == allBullet[j]->Player) {
-				moob[i]->substractHP(player->dmg);
-				del = true;
+				moob[i]->substractHP(allBullet[j]->dmg);
+				allBullet[j]->off = true;
 				//slain?
 				if (moob[i]->getHp() < 0) {
 					//kill moob
 					moob.erase(moob.begin() + i);
-					return;
-				}
-			}
-			if (allBullet[j]->colision(player->getRect()) && allBullet[j]->owner == allBullet[j]->SI) {
-				player->substarctHP(moob[i]->dmg);
-				del = true;
-				if (player->getHp() <= 0) {
-					//DIE
 				}
 			}
 		}
-		if (allBullet[j]->deleteBullet() || del) {
+		if (allBullet[j]->colision(player->getRect()) && allBullet[j]->owner == allBullet[j]->SI && allBullet[j]->off == false) {
+			player->substarctHP(allBullet[j]->dmg);
+			allBullet[j]->off = true;
+			if (player->getHp() <= 0) {
+				//DIE
+			}
+		}
+		if (allBullet[j]->deleteBullet()) {
 			allBullet.erase(allBullet.begin() + j);
 		}
 	}

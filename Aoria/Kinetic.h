@@ -2,9 +2,8 @@
 #include "Bullet.h"
 class KineticBullet : public Bullet {
 public:
-	KineticBullet(sf::Texture &texture, sf::Vector2f &pos);
+	KineticBullet(sf::Texture &texture, sf::Vector2f &pos,int dmg);
 	virtual void move();
-	virtual bool deleteBullet();
 private:
 	float speed = 10.f;
 };

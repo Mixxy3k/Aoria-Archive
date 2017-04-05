@@ -15,6 +15,8 @@ public:
 	Engine(sf::RenderWindow &win, FileMenager &fm);
 	void runEngine();
 private:
+	bool goMenu = false;
+
 	sf::RenderWindow *window;	
 	FileMenager *fileMenager;
 	InfoBar * rightInfoBar;

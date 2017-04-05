@@ -48,6 +48,7 @@ void Game::initEngine()
 	Engine engine(window, fileMenager);
 	engine.runEngine();
 	gameState = MENU;
+	runGame();
 }
 
 void Game::menu()
