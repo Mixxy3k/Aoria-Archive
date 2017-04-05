@@ -1,3 +1,6 @@
+# Aoria 1.2.2
+ - Bugfix
+
 # Aoria 1.2.1
 - Change variables for SI move (now it's more chaotic)
 - Repair bullet move
