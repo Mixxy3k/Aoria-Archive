@@ -9,6 +9,7 @@
 #include "InfoTab.h"
 #include "Lvl.h"
 #include "Laser.h"
+#include "SaveSystem.h"
 
 class Engine {
 public:
@@ -21,6 +22,7 @@ private:
 	FileMenager *fileMenager;
 	InfoBar * rightInfoBar;
 	InfoBar * leftInfoBar;
+	Save * saveSystem;
 
 	Lvl *lvl;
 
@@ -33,7 +35,5 @@ private:
 	void draw();
 	void updateLogic();
 
-	sf::Clock clock;
-	sf::Time timeSinceLastUpdate = sf::Time::Zero;
-	sf::Time TimePerFrame = sf::seconds(1.f / 60.f);
+	const float FPS = 100.f;
 };

@@ -28,6 +28,7 @@
     <ClCompile Include="Laser.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="SaveSystem.cpp" />
     <ClCompile Include="Si.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -41,12 +42,13 @@
     <ClInclude Include="Laser.h" />
     <ClInclude Include="Lvl.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="SaveSystem.h" />
     <ClInclude Include="Si.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{D7A86F03-DD9D-4429-8DDD-2B2F2692167A}</ProjectGuid>
     <RootNamespace>Aoria</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

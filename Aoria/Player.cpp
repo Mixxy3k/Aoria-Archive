@@ -21,3 +21,8 @@ bool Player::bulletCoolDown()
 	}
 	return false;
 }
+
+void Player::resetBulltClock() {
+	time = sf::Time::Zero;
+	bulletClock.restart();
+}

@@ -1,27 +1,6 @@
 #pragma once
 #include <SFML\Graphics.hpp>
 class Player : public sf::Drawable {
-public:
-	Player(sf::Texture &texture);
-	void move(float X, float Y);
-	sf::Vector2f getPlaerPosition() {
-		return playerSprite.getPosition();
-	}
-	bool bulletCoolDown();
-	void resetBulltClock() {
-		time = sf::Time::Zero;
-		bulletClock.restart();
-	}
-	int getHp() {
-		return hp;
-	}
-	void substarctHP(int dmg) {
-		hp -= dmg;
-	}
-	sf::FloatRect getRect() {
-		return playerSprite.getGlobalBounds();
-	}
-	int dmg = 1;
 private:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const {
 		target.draw(playerSprite, states);
@@ -32,6 +11,20 @@ private:
 
 	float cd;
 	int hp = 100;
-	float Speed = 290.f;
+	int dmg = 1;
 	std::string name = "[]";
+
+public:
+	Player(sf::Texture &texture);
+	void move(float X, float Y);
+	bool bulletCoolDown();
+	void resetBulltClock();
+
+	std::string GetName() { return name; }
+	sf::Vector2f getPlaerPosition() { return playerSprite.getPosition(); }
+	int GetDmg() { return dmg; }
+	int getHp() { return hp; }
+	void setHp(int newHp) { hp = newHp; }
+	void substarctHP(int dmg) { hp -= dmg; }
+	sf::FloatRect getRect() { return playerSprite.getGlobalBounds(); }
 };

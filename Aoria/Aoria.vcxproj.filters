@@ -1,96 +1,98 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
+    <Filter Include="Code">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Code\SI FILES">
+      <UniqueIdentifier>{732dca33-7cd5-43ed-95be-bddc8f09266b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Bullet Player">
-      <UniqueIdentifier>{03fd10ab-a88f-4f09-a71f-a9281c115024}</UniqueIdentifier>
+    <Filter Include="Code\Game and Engine">
+      <UniqueIdentifier>{3e8906ba-9d14-4a26-84e2-779959d62a0d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Bullet Si">
-      <UniqueIdentifier>{03a46ad7-234f-4f4c-9f9b-d612ab7141e1}</UniqueIdentifier>
+    <Filter Include="Code\Guns and bullets">
+      <UniqueIdentifier>{a31ea419-0189-4539-8c58-609e08c9d5a1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files\Bullet Player">
-      <UniqueIdentifier>{a4f15c12-46a4-4081-86d0-61f8d99a1b6c}</UniqueIdentifier>
+    <Filter Include="Code\Player">
+      <UniqueIdentifier>{12b992da-d5da-46eb-beeb-a75f355d2e53}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files\Bullet Si">
-      <UniqueIdentifier>{d0d39528-62c4-458c-a207-10bbf09a146a}</UniqueIdentifier>
+    <Filter Include="Code\SaveSystem">
+      <UniqueIdentifier>{f1994842-47ec-4126-8a3b-7e454f2a2edb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\Interactions and features">
+      <UniqueIdentifier>{c99a0122-4df8-494b-b1be-a9b9ba1dd25c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Si.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="BlueMoob.cpp">
+      <Filter>Code\SI FILES</Filter>
     </ClCompile>
     <ClCompile Include="Bullet.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Code\Guns and bullets</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Code\Game and Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Code\Game and Engine</Filter>
     </ClCompile>
     <ClCompile Include="InfoTab.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BlueMoob.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Code\Interactions and features</Filter>
     </ClCompile>
     <ClCompile Include="Kinetic.cpp">
-      <Filter>Source Files\Bullet Player</Filter>
+      <Filter>Code\Guns and bullets</Filter>
     </ClCompile>
     <ClCompile Include="Laser.cpp">
-      <Filter>Source Files\Bullet Si</Filter>
+      <Filter>Code\Guns and bullets</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Code\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Si.cpp">
+      <Filter>Code\SI FILES</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="SaveSystem.cpp">
+      <Filter>Code\SaveSystem</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FileMenager.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Resource Files</Filter>
+    <ClInclude Include="BlueMoob.h">
+      <Filter>Code\SI FILES</Filter>
     </ClInclude>
     <ClInclude Include="Si.h">
-      <Filter>Resource Files</Filter>
+      <Filter>Code\SI FILES</Filter>
     </ClInclude>
-    <ClInclude Include="BlueMoob.h">
-      <Filter>Resource Files</Filter>
+    <ClInclude Include="Engine.h">
+      <Filter>Code\Game and Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Code\Game and Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="FileMenager.h">
+      <Filter>Code\Game and Engine</Filter>
     </ClInclude>
     <ClInclude Include="Bullet.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
-    <ClInclude Include="InfoTab.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Lvl.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Kinetic.h">
-      <Filter>Resource Files\Bullet Player</Filter>
+      <Filter>Code\Guns and bullets</Filter>
     </ClInclude>
     <ClInclude Include="Laser.h">
-      <Filter>Resource Files\Bullet Si</Filter>
+      <Filter>Code\Guns and bullets</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Code\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="InfoTab.h">
+      <Filter>Code\Interactions and features</Filter>
+    </ClInclude>
+    <ClInclude Include="Lvl.h">
+      <Filter>Code\Interactions and features</Filter>
+    </ClInclude>
+    <ClInclude Include="Kinetic.h">
+      <Filter>Code\Guns and bullets</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveSystem.h">
+      <Filter>Code\SaveSystem</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
