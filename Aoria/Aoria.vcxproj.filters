@@ -40,12 +40,6 @@
     <ClCompile Include="InfoTab.cpp">
       <Filter>Code\Interactions and features</Filter>
     </ClCompile>
-    <ClCompile Include="Kinetic.cpp">
-      <Filter>Code\Guns and bullets</Filter>
-    </ClCompile>
-    <ClCompile Include="Laser.cpp">
-      <Filter>Code\Guns and bullets</Filter>
-    </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Code\Player</Filter>
     </ClCompile>
@@ -53,7 +47,7 @@
       <Filter>Code\SI FILES</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="SaveSystem.cpp">
+    <ClCompile Include="JSONmenager.cpp">
       <Filter>Code\SaveSystem</Filter>
     </ClCompile>
   </ItemGroup>
@@ -70,13 +64,7 @@
     <ClInclude Include="Game.h">
       <Filter>Code\Game and Engine</Filter>
     </ClInclude>
-    <ClInclude Include="FileMenager.h">
-      <Filter>Code\Game and Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Bullet.h">
-      <Filter>Code\Guns and bullets</Filter>
-    </ClInclude>
-    <ClInclude Include="Laser.h">
       <Filter>Code\Guns and bullets</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
@@ -88,11 +76,17 @@
     <ClInclude Include="Lvl.h">
       <Filter>Code\Interactions and features</Filter>
     </ClInclude>
+    <ClInclude Include="JSONmenager.h">
+      <Filter>Code\SaveSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureMenager.h">
+      <Filter>Code\SaveSystem</Filter>
+    </ClInclude>
     <ClInclude Include="Kinetic.h">
       <Filter>Code\Guns and bullets</Filter>
     </ClInclude>
-    <ClInclude Include="SaveSystem.h">
-      <Filter>Code\SaveSystem</Filter>
+    <ClInclude Include="Laser.h">
+      <Filter>Code\Guns and bullets</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

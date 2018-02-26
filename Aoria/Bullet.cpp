@@ -1,13 +1,18 @@
 #include "Bullet.h"
 
-Bullet::Bullet(sf::Texture &texture, sf::Vector2f &pos, Owner own, int bdmg, int LT)
+Bullet::Bullet(int ID, sf::Texture &texture, sf::Vector2f &position, int damage, int lifeTime, float speed)
 {
-	bulletSprite.setTexture(texture);
-	bulletSprite.setPosition(pos);
-	bulletSprite.setOrigin(bulletSprite.getGlobalBounds().width / 2, bulletSprite.getGlobalBounds().height / 2);
-	owner = own;
-	dmg = bdmg;
-	lifeTime = LT;
+	this->destroyBullet = false;
+
+	this->bulletSprite.setTexture(texture);
+	this->bulletSprite.setOrigin(bulletSprite.getGlobalBounds().width / 2, bulletSprite.getGlobalBounds().height / 2);
+	this->bulletSprite.setPosition(position);
+
+	this->ID = ID;
+	this->damage = damage;
+	this->lifeTime = lifeTime;
+
+	this->speed = speed;
 }
 
 bool Bullet::colision(sf::FloatRect &object)
@@ -22,7 +27,7 @@ bool Bullet::colision(sf::FloatRect &object)
 bool Bullet::deleteBullet()
 {
 	time = bulletClock.getElapsedTime();
-	if (time.asSeconds() >= lifeTime || off == true) {
+	if (time.asSeconds() >= this->lifeTime || this->destroyBullet) {
 		return true;
 	}
 	return false;

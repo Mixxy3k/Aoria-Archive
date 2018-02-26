@@ -1,19 +1,15 @@
 #include "Engine.h"
 sf::Color bg(10, 10, 15);
 
-Engine::Engine(sf::RenderWindow & win, FileMenager &fm)
+Engine::Engine(sf::RenderWindow *window, TextureMenager *textureMenager)
 {
-	saveSystem = new Save();
-	window = &win;
-	fileMenager = &fm;
+	this->window = window;
+	this->textureMenager = textureMenager;
 	lvl = new Lvl();
-	player = new Player(fileMenager->getRef("player"));
+	player = new Player(this->textureMenager->getTexture(1));
 
-	saveSystem->LoadGame();
-	player->setHp(saveSystem->GetHP());
-	lvl->SetStage(saveSystem->GetStage());
-	leftInfoBar = new InfoBar(fileMenager->getRef("topLeftBar"), fileMenager->getFont(), leftInfoBar->LEFT,sf::Vector2f(0,0));
-	rightInfoBar = new InfoBar(fileMenager->getRef("topRightBar"), fileMenager->getFont(), rightInfoBar->RIGHT, sf::Vector2f(1024, 0));
+	leftInfoBar = new InfoBar(this->textureMenager->getTexture(4), this->textureMenager->getFont(), leftInfoBar->LEFT,sf::Vector2f(0,0));
+	rightInfoBar = new InfoBar(this->textureMenager->getTexture(5), this->textureMenager->getFont(), rightInfoBar->RIGHT, sf::Vector2f(1024, 0));
 }
 //----------- Main Loop of game ------------
 void Engine::runEngine()
@@ -36,12 +32,12 @@ void Engine::runEngine()
 void Engine::draw()
 {
 	window->clear(bg);
-	for (auto obj : allBullet)
+	for (auto obj : bullets)
 	{
-		obj->draw(*window);
+		obj->draw(window);
 	}
 	for (auto obj : moob) {
-		obj->draw(*window);
+		obj->draw(window);
 	}
 	window->draw(*player);
 	rightInfoBar->draw(*window);
@@ -64,12 +60,12 @@ void Engine::updateLogic()
 	// -------------- Lvl menager
 	if (moob.empty()) {
 		if (lvl->Save()) {
-			saveSystem->SaveGame(player->GetName(), lvl->Stage(), player->getHp());
+		//	saveSystem->SaveGame(player->GetName(), lvl->Stage(), player->getHp());
 		}
 		lvl->NewLvl();
 		lvl->lvlskl();
 		for (int i = 0; i < lvl->HowMuchBlue(); i++) {
-			moob.push_back(new BlueMoob(fileMenager->getRef("blueShip")));
+			moob.push_back(new BlueMoob(this->textureMenager->getTexture(2)));
 		}
 	}
 	// -------------- Control Player
@@ -82,41 +78,27 @@ void Engine::updateLogic()
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && player->bulletCoolDown() == true) {
-		allBullet.push_back(new KineticBullet(fileMenager->getRef("kineticBullet"), player->getPlaerPosition() - sf::Vector2f(25, 0), player->GetDmg())); // right
-		allBullet.push_back(new KineticBullet(fileMenager->getRef("kineticBullet"), player->getPlaerPosition(), player->GetDmg())); // center
-		allBullet.push_back(new KineticBullet(fileMenager->getRef("kineticBullet"), player->getPlaerPosition() - sf::Vector2f(-25, 0), player->GetDmg())); // left
-		player->resetBulltClock();
+		int x = 0;
+		while (x <= 3) {
+			bullets.push_back(new KineticBullet(0, textureMenager->getTexture(3), player->getPlaerPosition()));
+			x++;
+		}
 	}
 	//------------- Si Move
 	for (int i = 0; i < moob.size(); i++) {
 		moob[i]->generateVector();
 		if (moob[i]->timer()) {
-			allBullet.push_back(new Laser(fileMenager->getRef("laser"), moob[i]->getPos(), moob[i]->dmg));
+			// allBullet.push_back(new Laser(this->textureMenager->getTexture(6), moob[i]->getPos(), moob[i]->dmg));
 		}
 	}
 	//------------- Moob - Bullet interaction
 	int i = 0;
 	bool del = false;
-	for (int j = 0; j < allBullet.size(); j++) {
+	for (int j = 0; j < bullets.size(); j++) {
 		//move bullet
-		allBullet[j]->move();
-		//Bullet colision with SI
-		for (int i = 0; i < moob.size(); i++) {
-			if (allBullet[j]->colision(moob[i]->getMoobRect()) && allBullet[j]->owner == allBullet[j]->Player) {
-				moob[i]->substractHP(allBullet[j]->dmg);
-				allBullet[j]->off = true;
-			}
-		}
-		//Bullet colision with Player
-		if (allBullet[j]->colision(player->getRect()) && allBullet[j]->owner == allBullet[j]->SI && allBullet[j]->off == false) {
-			player->substarctHP(allBullet[j]->dmg);
-			allBullet[j]->off = true;
-			if (player->getHp() <= 0) {
-				//DIE
-			}
-		}
-		if (allBullet[j]->deleteBullet()) {
-			allBullet.erase(allBullet.begin() + j);
+		bullets[j]->move();
+		if (bullets[j]->deleteBullet()) {
+			bullets.erase(bullets.begin() + j);
 		}
 	}
 	for (int i = 0; i < moob.size(); i++) {
@@ -128,7 +110,7 @@ void Engine::updateLogic()
 	leftInfoBar->SetBar1("Hp: ", player->getHp());
 	leftInfoBar->SetBar2("Lvl: ", lvl->LastLvl());
 
-	rightInfoBar->SetBar1("Bullets: ", allBullet.size());
+	//rightInfoBar->SetBar1("Bullets: ", allBullet.size());
 	rightInfoBar->SetBar2("SI: ", moob.size());
 }
 

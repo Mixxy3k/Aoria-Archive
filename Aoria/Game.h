@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML\Graphics.hpp>
 #include "Engine.h"
-#include "FileMenager.h"
+#include "TextureMenager.h"
 class Game {
 public:
 	Game();
@@ -11,15 +11,15 @@ protected:
 	enum GameState{MENU, GAME, GAME_OVER, END};
 	GameState gameState;
 
-	int width = 1024;
-	int height = 512;
+	float width = 1024;
+	float height = 512;
 
 private:
-	sf::RenderWindow window;
+	sf::RenderWindow* window = new sf::RenderWindow();
 
 	void initEngine();
 	void menu();
 
-	FileMenager fileMenager;
+	TextureMenager* textureMenager = new TextureMenager();
 
 };

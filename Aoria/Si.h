@@ -26,9 +26,7 @@ protected:
 	Vector vector;
 public:
 	int dmg = 0;
-	virtual void draw(sf::RenderWindow &window) const {
-		window.draw(moobSprite);
-	}
+	virtual void draw(sf::RenderWindow *window) const { window->draw(moobSprite); }
 	void generateVector();
 	void attack();
 	sf::Vector2f getPos() {

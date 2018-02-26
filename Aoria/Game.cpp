@@ -6,20 +6,20 @@ Game::Game()
 	// ------------ Window ------------------------//
 	sf::ContextSettings settings;
 	settings.antialiasingLevel = 8;
-	window.create(sf::VideoMode(width, height), "Aoria ", sf::Style::Default, settings);
-	window.setFramerateLimit(60);
+	window->create(sf::VideoMode(width, height), "Aoria", sf::Style::Default, settings);
+	window->setFramerateLimit(60);
 
 	//------------- Font --------------------------//
-	fileMenager.loadFont("data/Fonts/good times/good times rg.ttf");
+	textureMenager->loadFont("data/Fonts/good times/good times rg.ttf");
 
 	//------------- Textures ----------------------//
-	fileMenager.LoadTexture("background", "data/background-1409125_1280.png");
-	fileMenager.LoadTexture("player", "data/Player/ship.png");
-	fileMenager.LoadTexture("blueShip", "data/Si/bluemoob.png");
-	fileMenager.LoadTexture("kineticBullet", "data/Kinetic/Kinetic.png");
-	fileMenager.LoadTexture("topLeftBar", "data/Bar/Top Left Bar.png");
-	fileMenager.LoadTexture("topRightBar", "data/Bar/Top Right Bar.png");
-	fileMenager.LoadTexture("laser", "data/Laser/Laser.png");
+	textureMenager->LoadTexture("background",		"data/background-1409125_1280.png",	0);
+	textureMenager->LoadTexture("player",			"data/Player/ship.png",				1);
+	textureMenager->LoadTexture("blueShip",			"data/Si/bluemoob.png",				2);
+	textureMenager->LoadTexture("kineticBullet",	"data/Kinetic/Kinetic.png",			3);
+	textureMenager->LoadTexture("topLeftBar",		"data/Bar/Top Left Bar.png",		4);
+	textureMenager->LoadTexture("topRightBar",		"data/Bar/Top Right Bar.png",		5);
+	textureMenager->LoadTexture("laser",			"data/Laser/Laser.png",				6);
 	gameState = MENU;
 	runGame();
 }
@@ -45,7 +45,7 @@ void Game::runGame()
 
 void Game::initEngine()
 {
-	Engine engine(window, fileMenager);
+	Engine engine(this->window, this->textureMenager);
 	engine.runEngine();
 	gameState = MENU;
 	runGame();
@@ -57,8 +57,8 @@ void Game::menu()
 	using namespace std;
 	using namespace sf;
 	sf::Sprite bg;
-	bg.setTexture(fileMenager.getRef("background"));
-	Text title("Aoria", fileMenager.getFont(), 80);
+	bg.setTexture(textureMenager->getTexture(0));
+	Text title("Aoria", textureMenager->getFont(), 80);
 	title.setStyle(Text::Bold);
 
 	title.setPosition(width / 2 - title.getGlobalBounds().width / 2, 20);
@@ -70,7 +70,7 @@ void Game::menu()
 	string str[] = { "Play","Exit" };
 	for (int i = 0; i < ile; i++)
 	{
-		tekst[i].setFont(fileMenager.getFont());
+		tekst[i].setFont(textureMenager->getFont());
 		tekst[i].setCharacterSize(65);
 
 		tekst[i].setString(str[i]);
@@ -80,12 +80,12 @@ void Game::menu()
 	while (gameState == MENU)
 	{
 		// Real Real coords to window coords
-		sf::Vector2i pixelPos = sf::Mouse::getPosition(window);
-		sf::Vector2f mouse = window.mapPixelToCoords(pixelPos);
+		sf::Vector2i pixelPos = sf::Mouse::getPosition(*window);
+		sf::Vector2f mouse = window->mapPixelToCoords(pixelPos);
 
 		Event event;
 
-		while (window.pollEvent(event))
+		while (this->window->pollEvent(event))
 		{
 			// -------- Pressed [X] or ESC
 			if (event.type == Event::Closed || event.type == Event::KeyPressed &&
@@ -111,13 +111,12 @@ void Game::menu()
 				tekst[i].setFillColor(Color::Cyan);
 			else tekst[i].setFillColor(Color::White);
 
-			window.clear();
-			window.draw(bg);
-			window.draw(title);
+			window->clear();
+			window->draw(bg);
+			window->draw(title);
 			for (int i = 0; i < ile; i++)
-				window.draw(tekst[i]);
+				window->draw(tekst[i]);
 
-			window.display();
+			window->display();
 	}
-
 }

@@ -2,35 +2,35 @@
 #include <SFML\Graphics.hpp>
 #include <vector>
 #include <memory>
+#include "Bullet.h"
+#include "Kinetic.h"
 #include "Player.h"
 #include "BlueMoob.h"
-#include "FileMenager.h"
-#include "Kinetic.h"
+#include "TextureMenager.h"
 #include "InfoTab.h"
 #include "Lvl.h"
-#include "Laser.h"
 #include "SaveSystem.h"
 
 class Engine {
 public:
-	Engine(sf::RenderWindow &win, FileMenager &fm);
+	Engine(sf::RenderWindow *window, TextureMenager *textureMenager);
 	void runEngine();
 private:
 	bool goMenu = false;
-
 	sf::RenderWindow *window;	
-	FileMenager *fileMenager;
+	TextureMenager *textureMenager;
 	InfoBar * rightInfoBar;
 	InfoBar * leftInfoBar;
-	Save * saveSystem;
+	//Save * saveSystem;
 
 	Lvl *lvl;
 
 	Player *player;
 
-	typedef std::vector <Bullet *> bullet;
 	std::vector <Si *> moob;
-	bullet allBullet;
+
+	typedef std::vector <Bullet *> bullet;
+	bullet bullets;
 
 	void draw();
 	void updateLogic();

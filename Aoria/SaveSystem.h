@@ -3,10 +3,10 @@
 #include <fstream>
 #include <windows.h>
 #include <string>
+#include "nlohmann JSON Library\json.hpp"
 
-class Save {
+class JSONS {
 public:
-	Save();
 	void SaveGame(std::string name, int stage, int hp);
 	void LoadGame();
 	std::string GetName() { return name; }
