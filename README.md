@@ -19,8 +19,8 @@
  - LVL
 - Added New Background color
 - New Textures
- - Top Left Bar
- - Top Right Bar
+  - Top Left Bar
+  - Top Right Bar
 
 # Aoria 1.1
 - New Si move
