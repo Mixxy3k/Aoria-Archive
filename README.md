@@ -1,30 +1,37 @@
+# Aoria 1.3.1
+ - Bugfix again, again...
+ - Started code update
+ 
+# Aoria 1.3.0
+ - Bugfix again
+ 
 # Aoria 1.2.2
  - Bugfix
 
 # Aoria 1.2.1
-- Change variables for SI move (now it's more chaotic)
-- Repair bullet move
-- Repair colision
+- Changed variables for SI move (now it's more chaotic)
+- Fixed bullet move
+- Fixed colision
 
 # Aoria 1.2
-- Add InfoBar
+- Added InfoBar
  - HP
  - LVL
-- Add New Background color
-- New Texture
+- Added New Background color
+- New Textures
  - Top Left Bar
  - Top Right Bar
 
 # Aoria 1.1
 - New Si move
 - Create Bullets
-- Add Texture
+- Added Texture
   - Player
   - Blue Moob 
   - Kinetic Bullet
   - Laser
 
 # Aoria 1.0
-- Create engine 
-- Create player
-- Create si
+- Created engine 
+- Created player
+- Created si
