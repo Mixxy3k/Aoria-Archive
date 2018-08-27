@@ -8,9 +8,6 @@
     <Filter Include="Code\SI FILES">
       <UniqueIdentifier>{732dca33-7cd5-43ed-95be-bddc8f09266b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Code\Game and Engine">
-      <UniqueIdentifier>{3e8906ba-9d14-4a26-84e2-779959d62a0d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Code\Guns and bullets">
       <UniqueIdentifier>{a31ea419-0189-4539-8c58-609e08c9d5a1}</UniqueIdentifier>
     </Filter>
@@ -23,70 +20,28 @@
     <Filter Include="Code\Interactions and features">
       <UniqueIdentifier>{c99a0122-4df8-494b-b1be-a9b9ba1dd25c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Code\Engine">
+      <UniqueIdentifier>{8addf97d-50f7-4a53-8b9e-d23b3c094eb9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BlueMoob.cpp">
-      <Filter>Code\SI FILES</Filter>
-    </ClCompile>
-    <ClCompile Include="Bullet.cpp">
-      <Filter>Code\Guns and bullets</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Code\Game and Engine</Filter>
+    <ClCompile Include="Main.cpp">
+      <Filter>Code</Filter>
     </ClCompile>
     <ClCompile Include="Engine.cpp">
-      <Filter>Code\Game and Engine</Filter>
+      <Filter>Code\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="InfoTab.cpp">
-      <Filter>Code\Interactions and features</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Code\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="Si.cpp">
-      <Filter>Code\SI FILES</Filter>
-    </ClCompile>
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="JSONmenager.cpp">
-      <Filter>Code\SaveSystem</Filter>
-    </ClCompile>
+    <ClCompile Include="ConsoleMenager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BlueMoob.h">
-      <Filter>Code\SI FILES</Filter>
-    </ClInclude>
-    <ClInclude Include="Si.h">
-      <Filter>Code\SI FILES</Filter>
-    </ClInclude>
     <ClInclude Include="Engine.h">
-      <Filter>Code\Game and Engine</Filter>
+      <Filter>Code\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Code\Game and Engine</Filter>
+    <ClInclude Include="TextureMenager.hpp">
+      <Filter>Code</Filter>
     </ClInclude>
-    <ClInclude Include="Bullet.h">
-      <Filter>Code\Guns and bullets</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Code\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="InfoTab.h">
-      <Filter>Code\Interactions and features</Filter>
-    </ClInclude>
-    <ClInclude Include="Lvl.h">
-      <Filter>Code\Interactions and features</Filter>
-    </ClInclude>
-    <ClInclude Include="JSONmenager.h">
-      <Filter>Code\SaveSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureMenager.h">
-      <Filter>Code\SaveSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="Kinetic.h">
-      <Filter>Code\Guns and bullets</Filter>
-    </ClInclude>
-    <ClInclude Include="Laser.h">
-      <Filter>Code\Guns and bullets</Filter>
+    <ClInclude Include="ConsoleMenager.h">
+      <Filter>Code</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,10 +1,10 @@
-#include "Game.h"
-#include <cstdlib>
+#include <iostream>
+#include "Engine.h"
 
+using namespace std;
 int main() {
-	srand(time(NULL));
-
-	Game game;
-	game.runGame();
+	Engine engine;
+	engine.runEngine();
+	system("pause");
 	return 0;
 }

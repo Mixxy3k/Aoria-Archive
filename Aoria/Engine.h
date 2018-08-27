@@ -1,39 +1,30 @@
 #pragma once
-#include <SFML\Graphics.hpp>
-#include <vector>
-#include <memory>
-#include "Bullet.h"
-#include "Kinetic.h"
-#include "Player.h"
-#include "BlueMoob.h"
-#include "TextureMenager.h"
-#include "InfoTab.h"
-#include "Lvl.h"
-#include "SaveSystem.h"
+#include <iostream>
+#include "SFML/Graphics.hpp"
+#include "TextureMenager.hpp"
+#include "ConsoleMenager.h"
 
 class Engine {
 public:
-	Engine(sf::RenderWindow *window, TextureMenager *textureMenager);
+	const std::string version = "2.0";
+#if _DEBUG
+	const std::string DEBUG_VER = "1";
+#endif
+
+	Engine();
+
 	void runEngine();
+	void runMenu(sf::Vector2i screnResolution);
+	//void 
+
 private:
-	bool goMenu = false;
-	sf::RenderWindow *window;	
-	TextureMenager *textureMenager;
-	InfoBar * rightInfoBar;
-	InfoBar * leftInfoBar;
-	//Save * saveSystem;
+#if _DEBUG
+	ConsoleMenager *consoleMenager = new ConsoleMenager(version, DEBUG_VER);
+#else 
+	ConsoleMenager *consoleMenager = new ConsoleMenager(version);
+#endif // _DEBUG
 
-	Lvl *lvl;
-
-	Player *player;
-
-	std::vector <Si *> moob;
-
-	typedef std::vector <Bullet *> bullet;
-	bullet bullets;
-
-	void draw();
-	void updateLogic();
-
-	const float FPS = 100.f;
+	sf::Vector2i windowResolution;
+	sf::RenderWindow *window = new sf::RenderWindow;
+	TextureMenager *textureMenager = new TextureMenager(consoleMenager);
 };
