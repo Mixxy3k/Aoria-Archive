@@ -7,14 +7,12 @@ using namespace std;
 
 class ConsoleMenager {
 public:
-	//If -> Debug, create console visable and out a version + debug version
 #if _DEBUG
 	ConsoleMenager(std::string version, std::string debugVersion)
 	{
 		showConsole();
 		log("Aoria v: " + version + " DEBUG BUILD " + debugVersion, "");
 	}
-	//If -> Relase, create console invisable and out a version
 #else
 	ConsoleMenager(std::string version) 
 	{
@@ -23,12 +21,19 @@ public:
 	}
 #endif // _DEBUG
 
+	//Display a Log Message in Console
 	void log(const string &message, const string &typeLog = "LOG");
 	
 private:
 	string message;
 	vector<string> *logs = new vector<string>;
 
-	inline void hideConsole();
-	void showConsole();
+	inline void hideConsole() {
+		::ShowWindow(::GetConsoleWindow(), SW_HIDE);
+	}
+
+	inline void showConsole()
+	{
+		::ShowWindow(::GetConsoleWindow(), SW_RESTORE);
+	}
 };

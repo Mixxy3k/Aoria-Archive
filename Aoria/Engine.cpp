@@ -21,16 +21,18 @@ void Engine::runEngine()
 		consoleMenager->log("Cannot load font!", "ERROR");
 	}
 
+
 	//Create a object for Loading message
 	sf::Text loadingText("Loading", textureMenager->getFont(), 90);
 	loadingText.setPosition(window->getSize().x / 2 - loadingText.getGlobalBounds().width / 2, window->getSize().y / 2 - loadingText.getGlobalBounds().height / 2);
+
 
 	//Display a Loading message, set window color to black
 	window->clear();
 	window->draw(loadingText);
 	window->display();
 
-	//Loading a textures
+	//Loading a texture
 	textureMenager->loadTexture("background", "data/background-1409125_1280.png", 0);
 	textureMenager->loadTexture("player", "data/Player/ship.png", 1);
 	textureMenager->loadTexture("blueShip", "data/Si/bluemoob.png", 2);
