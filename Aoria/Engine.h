@@ -8,7 +8,7 @@ class Engine {
 public:
 	const std::string version = "2.0";
 #if _DEBUG
-	const std::string DEBUG_VER = "1.01";
+	const std::string DEBUG_VER = "1";
 #endif
 
 	Engine();
