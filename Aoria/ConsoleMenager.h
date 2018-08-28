@@ -28,12 +28,6 @@ private:
 	string message;
 	vector<string> *logs = new vector<string>;
 
-	inline void hideConsole() {
-		::ShowWindow(::GetConsoleWindow(), SW_HIDE);
-	}
-
-	inline void showConsole()
-	{
-		::ShowWindow(::GetConsoleWindow(), SW_RESTORE);
-	}
+	inline void hideConsole();
+	void showConsole();
 };
