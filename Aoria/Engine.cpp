@@ -44,5 +44,4 @@ void Engine::runEngine()
 
 void Engine::runMenu(sf::Vector2i screnResolution)
 {
-
 }

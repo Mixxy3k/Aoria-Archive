@@ -2,7 +2,10 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <Windows.h>
+#if _WIN64
+	#include <Windows.h>
+#endif
+
 using namespace std;
 
 class ConsoleMenager {
@@ -14,26 +17,19 @@ public:
 		log("Aoria v: " + version + " DEBUG BUILD " + debugVersion, "");
 	}
 #else
-	ConsoleMenager(std::string version) 
+	ConsoleMenager(std::string version)
 	{
 		hideConsole();
 		log("Aoria v: " + version, "");
 	}
 #endif // _DEBUG
 
-	//Display a Log Message in Console
 	void log(const string &message, const string &typeLog = "LOG");
-	
+
 private:
 	string message;
 	vector<string> *logs = new vector<string>;
 
-	inline void hideConsole() {
-		::ShowWindow(::GetConsoleWindow(), SW_HIDE);
-	}
-
-	inline void showConsole()
-	{
-		::ShowWindow(::GetConsoleWindow(), SW_RESTORE);
-	}
+	void hideConsole();
+	void showConsole();
 };

@@ -4,7 +4,6 @@
 #include <map>
 #include "ConsoleMenager.h"
 
-using namespace std;
 class TextureMenager {
 private:
 	sf::Font font;
