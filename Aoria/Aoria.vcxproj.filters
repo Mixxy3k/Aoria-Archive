@@ -44,4 +44,9 @@
       <Filter>Code</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Filter>Code</Filter>
+    </None>
+  </ItemGroup>
 </Project>

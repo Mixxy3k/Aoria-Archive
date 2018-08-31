@@ -1,3 +1,17 @@
+# Aoria 2.0 DEBUG BUILD 1
+- Add Support for
+  - Linux (64bit)
+  - Windows (64bit)
+- Update SFML to 2.5.0 ver
+- Started Rewrirte
+  - Engine
+- New Classes
+  - ConsoleMenager - Hide restore and write log
+  - TextureMenager - Well Texturers + Font!
+  - Engine - Write loading text! (In future draw sprites and do logic with love <3)
+
+#Aoria RE:CODE -> DELETED ALL DATA!
+
 # Aoria 1.3.1
  - Started code update
  - Bugfix <3 

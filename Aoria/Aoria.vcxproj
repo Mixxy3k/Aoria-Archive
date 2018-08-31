@@ -28,6 +28,9 @@
     <ClInclude Include="ConsoleMenager.h" />
     <ClInclude Include="TextureMenager.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\README.md" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{D7A86F03-DD9D-4429-8DDD-2B2F2692167A}</ProjectGuid>
     <RootNamespace>Aoria</RootNamespace>
