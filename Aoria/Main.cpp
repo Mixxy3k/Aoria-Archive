@@ -3,14 +3,11 @@
 
 using namespace std;
 int main() {
-#if __unix__
-	std::cout << "AORIA RUN ON UNIX! (LINUX/MACOS)" << srd::endl;
-#elif _WIN64
+#if _WIN64
 	std::cout << "AORIA ON WINDOWS (64BIT)" << std::endl;
-#endif // __unix__
-
+#else
+	std::cerr << "NOT 64 BIT WINDOWS! [App is only 64 bit]]" << std::endl;
+#endif
 	Engine engine;
-	engine.runEngine();
-	system("pause");
 	return 0;
 }

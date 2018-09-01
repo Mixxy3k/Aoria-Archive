@@ -12,7 +12,8 @@ public:
 #endif
 
 	Engine();
-
+	
+	void windowEventMenager();
 	void runEngine();
 	void runMenu(sf::Vector2i screnResolution);
 	//void 

@@ -4,10 +4,6 @@ Engine::Engine()
 {
 	//Set window resolution to 1024x512
 	windowResolution = sf::Vector2i(1024, 512);
-}
-
-void Engine::runEngine()
-{
 	//Creating a window and set title fo relase mode
 	window->create(sf::VideoMode(windowResolution.x, windowResolution.y), "Voav " + version, sf::Style::Default);
 
@@ -40,8 +36,30 @@ void Engine::runEngine()
 	textureMenager->loadTexture("topLeftBar", "data/Bar/Top Left Bar.png", 4);
 	textureMenager->loadTexture("topRightBar", "data/Bar/Top Right Bar.png", 5);
 	textureMenager->loadTexture("laser", "data/Laser/Laser.png", 6);
+	runEngine();
+}
+
+void Engine::windowEventMenager()
+{
+	sf::Event event;
+		while (window->pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+				window->close();
+		}
+}
+
+void Engine::runEngine()
+{
+	while (window->isOpen())
+	{
+		windowEventMenager();
+	}
 }
 
 void Engine::runMenu(sf::Vector2i screnResolution)
 {
+	for (;;) {
+
+	}
 }
