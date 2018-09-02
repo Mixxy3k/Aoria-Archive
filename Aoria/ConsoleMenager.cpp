@@ -16,9 +16,20 @@ void ConsoleMenager::log(const string & message, const string & typeLog)
 
 	//If DEBUG -> Write log to console
 	//If RELASE -> Do nothing <3
-#if _DEBUG
+//#if _DEBUG
 	cout << this->message << endl;
-#endif // _DEBUG
+//#endif // _DEBUG
+}
+
+void ConsoleMenager::errorExit(string errorText, sf::RenderWindow * window)
+{
+	//*gameState = APP_ERROR;
+	window->close();
+#if (_DEBUG == false)
+	showConsole();
+#endif
+	log("Cannot run application correctly!");
+	system("pause");
 }
 
 #if _WIN64

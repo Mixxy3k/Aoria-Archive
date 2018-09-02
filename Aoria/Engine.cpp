@@ -2,6 +2,7 @@
 
 Engine::Engine()
 {
+	*gameState = LOADING;
 	//Set window resolution to 1024x512
 	windowResolution = sf::Vector2i(1024, 512);
 	//Creating a window and set title fo relase mode
@@ -13,10 +14,7 @@ Engine::Engine()
 #endif
 
 	//Load font to memory
-	if (!textureMenager->loadFont("data/Fonts/good times/good times rg.ttf")) {
-		consoleMenager->log("Cannot load font!", "ERROR");
-	}
-
+	textureMenager->loadFont("data/Fonts/good times/good times rg.ttf");
 
 	//Create a object for Loading message
 	sf::Text loadingText("Loading", textureMenager->getFont(), 90);
@@ -36,7 +34,9 @@ Engine::Engine()
 	textureMenager->loadTexture("topLeftBar", "data/Bar/Top Left Bar.png", 4);
 	textureMenager->loadTexture("topRightBar", "data/Bar/Top Right Bar.png", 5);
 	textureMenager->loadTexture("laser", "data/Laser/Laser.png", 6);
-	runEngine();
+	
+	*gameState = MENU;
+	runMenu();
 }
 
 void Engine::windowEventMenager()
@@ -51,15 +51,27 @@ void Engine::windowEventMenager()
 
 void Engine::runEngine()
 {
-	while (window->isOpen())
+	while (*gameState == IN_GAME && window->isOpen())
 	{
 		windowEventMenager();
 	}
 }
 
-void Engine::runMenu(sf::Vector2i screnResolution)
+void Engine::runMenu()
 {
-	for (;;) {
-
+	while (*gameState == MENU && window->isOpen()) 
+	{
+		windowEventMenager();
 	}
+}
+
+void Engine::errorExit()
+{
+	*gameState = APP_ERROR;
+	this->window->close();
+#if !_DEBUG
+	consoleMenager->showConsole();
+#endif
+	consoleMenager->log("Cannot run application correctly!");
+	system("pause");
 }

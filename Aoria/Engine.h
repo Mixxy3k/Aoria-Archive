@@ -15,9 +15,11 @@ public:
 	
 	void windowEventMenager();
 	void runEngine();
-	void runMenu(sf::Vector2i screnResolution);
+	void runMenu();
+	void errorExit();
 	//void 
-
+	enum GameState { APP_ERROR, LOADING = 1, MENU, IN_GAME, };
+	GameState *gameState = new GameState;
 private:
 #if _DEBUG
 	ConsoleMenager *consoleMenager = new ConsoleMenager(version, DEBUG_VER);

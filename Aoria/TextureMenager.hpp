@@ -24,7 +24,6 @@ public:
 		//If somthing go wrong
 		if (!Texture.loadFromFile(position)) {
 			//Error message
-			system("cls");
 			consoleMenager->log("Cannot load file! + name", "ERROR");
 			TextureList[ID] = "ERROR_TEXTURE!";
 			return false;
@@ -38,7 +37,7 @@ public:
 			return true;
 		}
 	}
-	//
+	
 	void textureList() {
 		for (auto elem : TextureList)
 		{
