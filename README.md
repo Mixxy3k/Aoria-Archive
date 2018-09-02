@@ -7,7 +7,7 @@
   - TextureMenager - Well Texturers + Font!
   - Engine - Write loading text! (In future draw sprites and do logic with love <3)
 
-#Aoria RE:CODE -> DELETED ALL DATA!
+# Aoria RE:CODE -> DELETED ALL DATA!
 
 # Aoria 1.3.1
  - Started code update
