@@ -34,7 +34,8 @@ Engine::Engine()
 	textureMenager->loadTexture("topLeftBar", "data/Bar/Top Left Bar.png", 4);
 	textureMenager->loadTexture("topRightBar", "data/Bar/Top Right Bar.png", 5);
 	textureMenager->loadTexture("laser", "data/Laser/Laser.png", 6);
-	
+
+	consoleMenager->log("All loaded succesful!");
 	*gameState = MENU;
 	runMenu();
 }
@@ -63,15 +64,4 @@ void Engine::runMenu()
 	{
 		windowEventMenager();
 	}
-}
-
-void Engine::errorExit()
-{
-	*gameState = APP_ERROR;
-	this->window->close();
-#if !_DEBUG
-	consoleMenager->showConsole();
-#endif
-	consoleMenager->log("Cannot run application correctly!");
-	system("pause");
 }

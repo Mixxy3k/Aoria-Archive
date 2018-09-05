@@ -16,7 +16,6 @@ public:
 	void windowEventMenager();
 	void runEngine();
 	void runMenu();
-	void errorExit();
 	//void 
 	enum GameState { APP_ERROR, LOADING = 1, MENU, IN_GAME, };
 	GameState *gameState = new GameState;

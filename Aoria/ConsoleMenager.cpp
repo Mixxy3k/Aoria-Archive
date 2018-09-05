@@ -1,6 +1,5 @@
 #include "ConsoleMenager.h"
 
-//Write Log to console if run in DEBUG, and prepare message to save to file
 void ConsoleMenager::log(const string & message, const string & typeLog)
 {
 	//If somthing go wrong and typeLog is empty, change typeLog to "LOG:"
