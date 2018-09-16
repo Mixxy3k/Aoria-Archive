@@ -31,6 +31,7 @@ public:
 	void showConsole();
 
 	void log(const string &message, const string &typeLog = "LOG");
+	void seperator();
 
 	void errorExit(string errorText, sf::RenderWindow *window);
 private:

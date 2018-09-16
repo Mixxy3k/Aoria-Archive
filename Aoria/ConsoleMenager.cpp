@@ -20,6 +20,11 @@ void ConsoleMenager::log(const string & message, const string & typeLog)
 //#endif // _DEBUG
 }
 
+void ConsoleMenager::seperator()
+{
+	cout << "--------------------" << endl;
+}
+
 void ConsoleMenager::errorExit(string errorText, sf::RenderWindow * window)
 {
 	//*gameState = APP_ERROR;

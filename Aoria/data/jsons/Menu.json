@@ -1,0 +1,43 @@
+{
+  "Menu": {
+    "butons": {
+      "button1": {
+        "buttonText": "Aoria",
+        "size": 89,
+        "color": "aqua"
+      },
+      "button2": {
+        "buttonText": "Start",
+        "size": 50,
+        "color": "white"
+      },
+      "button3": {
+        "buttonText": "Reset",
+        "size": 50,
+        "color": "white"
+      },
+      "button4": {
+        "buttonText": "EXIT",
+        "size": 50,
+        "color": "white"
+      }
+    }
+  }
+}
+
+
+/*{
+  "age": 56,
+  "answer": {
+    "everything": 42
+  },
+  "happy": true,
+  "list": [ 1, 0, 2 ],
+  "name": "Niels",
+  "nothing": null,
+  "object": {
+    "currency": "USD",
+    "value": 42.99
+  },
+  "pi": 3.141
+}*/

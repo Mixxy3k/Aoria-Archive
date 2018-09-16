@@ -58,12 +58,12 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="jsons\TEST.json">
+    <None Include="..\README.md" />
+    <None Include="jsons\Menu.json">
       <Filter>jsons</Filter>
     </None>
     <None Include="jsons\test2.json">
       <Filter>jsons</Filter>
     </None>
-    <None Include="..\README.md" />
   </ItemGroup>
 </Project>

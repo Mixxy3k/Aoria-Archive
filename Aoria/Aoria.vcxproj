@@ -34,7 +34,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md" />
-    <None Include="jsons\TEST.json" />
+    <None Include="jsons\Menu.json" />
     <None Include="jsons\test2.json" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
