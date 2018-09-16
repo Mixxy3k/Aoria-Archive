@@ -1,3 +1,9 @@
+# Aoria 2.0 DEBUG BUILD 1.1
+- Add json support
+  - Using nlohmann JSON Library and filesystem from c++17
+  - Auto find jsons and load them!
+
+
 # Aoria 2.0 DEBUG BUILD 1
 - Add Support for
   - Windows (64bit)

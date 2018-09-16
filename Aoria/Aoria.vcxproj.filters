@@ -20,33 +20,50 @@
     <Filter Include="Code\Interactions and features">
       <UniqueIdentifier>{c99a0122-4df8-494b-b1be-a9b9ba1dd25c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Code\Engine">
+    <Filter Include="Code\Engine &amp; textures">
       <UniqueIdentifier>{8addf97d-50f7-4a53-8b9e-d23b3c094eb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="jsons">
+      <UniqueIdentifier>{9f04c31d-ab2c-450d-9965-fe98632772e9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Code</Filter>
-    </ClCompile>
     <ClCompile Include="Engine.cpp">
-      <Filter>Code\Engine</Filter>
+      <Filter>Code\Engine &amp; textures</Filter>
     </ClCompile>
-    <ClCompile Include="ConsoleMenager.cpp" />
+    <ClCompile Include="Main.cpp">
+      <Filter>Code\Engine &amp; textures</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleMenager.cpp">
+      <Filter>Code\Engine &amp; textures</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="JsonMenager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
-      <Filter>Code\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureMenager.hpp">
-      <Filter>Code</Filter>
+      <Filter>Code\Engine &amp; textures</Filter>
     </ClInclude>
     <ClInclude Include="ConsoleMenager.h">
+      <Filter>Code\Engine &amp; textures</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureMenager.hpp">
+      <Filter>Code\Engine &amp; textures</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="JsonMenager.h">
       <Filter>Code</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\README.md">
-      <Filter>Code</Filter>
+    <None Include="jsons\TEST.json">
+      <Filter>jsons</Filter>
     </None>
+    <None Include="jsons\test2.json">
+      <Filter>jsons</Filter>
+    </None>
+    <None Include="..\README.md" />
   </ItemGroup>
 </Project>

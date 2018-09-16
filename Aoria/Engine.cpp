@@ -36,6 +36,8 @@ Engine::Engine()
 	textureMenager->loadTexture("laser", "data/Laser/Laser.png", 6);
 
 	consoleMenager->log("All loaded succesful!");
+	JsonMenager js;
+	js.loadAllJsons();
 	*gameState = MENU;
 	runMenu();
 }
