@@ -1,8 +1,18 @@
 {
+  "module": {
+    "name": "Menu",
+    "fullName": "Menu interface",
+    "version": "1.0"
+  },
   "button1": {
     "buttonText": "Aoria",
     "size": 89,
-    "color": "aqua"
+    "color": "aqua",
+    "test": {
+      "r": 89,
+      "g": 87,
+      "b": 222
+    }
   },
   "button2": {
     "buttonText": "Start",
@@ -18,6 +28,9 @@
     "buttonText": "EXIT",
     "size": 50,
     "color": "white"
+  },
+  "test": {
+    "hello": true
   }
 }
 

@@ -38,7 +38,9 @@
       <Filter>Code\Engine &amp; textures</Filter>
     </ClCompile>
     <ClCompile Include="Menu.cpp" />
-    <ClCompile Include="JsonMenager.cpp" />
+    <ClCompile Include="JsonMenager.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">

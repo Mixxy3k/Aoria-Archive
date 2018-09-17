@@ -24,11 +24,14 @@ Engine::Engine()
 	loadingText.setPosition(window->getSize().x / 2 - loadingText.getGlobalBounds().width / 2, window->getSize().y / 2 - loadingText.getGlobalBounds().height / 2);
 	window->clear();
 	window->draw(loadingText);
+	window->draw(loadingText);
 	window->display();
 
 	//Load all Jsons files to memory
 	JsonMenager js(consoleMenager);
-	js.loadAllJsons();
+	if (!js.loadAllJsons()) {
+		consoleMenager->errorExit("", window);
+	}
 	consoleMenager->seperator();
 
 	//Loading a texture

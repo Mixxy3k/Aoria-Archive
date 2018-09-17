@@ -19,7 +19,7 @@ public:
 private:
 	ConsoleMenager *consoleMenager;
 	std::string pathToString(fs::path path);
-	std::map<int, json> jsons;
+	std::map<std::string, json> jsons;
 	std::fstream file;
 	fs::path jsonsPath = fs::current_path() /= "jsons";
 };
