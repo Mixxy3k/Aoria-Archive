@@ -31,32 +31,32 @@
     <ClCompile Include="Engine.cpp">
       <Filter>Code\Engine &amp; textures</Filter>
     </ClCompile>
-    <ClCompile Include="Main.cpp">
+    <ClCompile Include="Menu.cpp">
       <Filter>Code\Engine &amp; textures</Filter>
     </ClCompile>
-    <ClCompile Include="ConsoleMenager.cpp">
-      <Filter>Code\Engine &amp; textures</Filter>
-    </ClCompile>
-    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="JsonMenager.cpp">
-      <Filter>Code</Filter>
+      <Filter>Code\Engine &amp; textures</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="ConsoleManager.cpp">
+      <Filter>Code\Engine &amp; textures</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
       <Filter>Code\Engine &amp; textures</Filter>
     </ClInclude>
-    <ClInclude Include="ConsoleMenager.h">
-      <Filter>Code\Engine &amp; textures</Filter>
-    </ClInclude>
     <ClInclude Include="TextureMenager.hpp">
       <Filter>Code\Engine &amp; textures</Filter>
     </ClInclude>
     <ClInclude Include="Menu.h">
-      <Filter>Code</Filter>
+      <Filter>Code\Engine &amp; textures</Filter>
     </ClInclude>
     <ClInclude Include="JsonMenager.h">
-      <Filter>Code</Filter>
+      <Filter>Code\Engine &amp; textures</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleManager.h">
+      <Filter>Code\Engine &amp; textures</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

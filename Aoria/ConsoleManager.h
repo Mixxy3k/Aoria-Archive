@@ -9,23 +9,14 @@
 
 using namespace std;
 
-class ConsoleMenager {
+class ConsoleManager {
 public:
 #if _DEBUG
-	ConsoleMenager(std::string version, std::string debugVersion)
-	{
-		sf::err().rdbuf(NULL);
-		showConsole();
-		log("Aoria v" + version + " DEBUG BUILD " + debugVersion, "");
-	}
+	ConsoleManager(std::string version, std::string debugVersion);
 #else
-	ConsoleMenager(std::string version)
-	{
-		sf::err().rdbuf(NULL);
-		hideConsole();
-		log("Aoria v: " + version, "");
-	}
+	ConsoleManager(std::string version);
 #endif // _DEBUG
+	~ConsoleManager();
 
 	void hideConsole();
 	void showConsole();

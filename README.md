@@ -1,7 +1,11 @@
-# Aoria 2.0 DEBUG BUILD 1.1
+﻿# Aoria 2.0 DEBUG BUILD 1.1
 - Add json support
   - Using nlohmann JSON Library and filesystem from c++17
   - Auto find jsons and load them!
+  # Build 1.1.1
+    - Little code changes!
+	- Better ENGIRISH!
+	- ☆ Thanks Draghan for liitle help! ☆
 
 
 # Aoria 2.0 DEBUG BUILD 1
@@ -9,7 +13,7 @@
   - Windows (64bit)
 - Update SFML to 2.5.0 
 - New Classes
-  - ConsoleMenager - Hide restore and write log
+  - ConsoleManager - Hide restore and write log
   - TextureMenager - Well Texturers + Font!
   - Engine - Write loading text! (In future draw sprites and do logic with love <3)
 

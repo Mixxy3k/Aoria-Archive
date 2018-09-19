@@ -1,6 +1,6 @@
 #include "Engine.h"
 
-Engine::Engine()
+void Engine::loadGame()
 {
 	*gameState = LOADING;
 	//Set window resolution to 1024x512
@@ -12,11 +12,11 @@ Engine::Engine()
 #if _DEBUG
 	window->setTitle("Aoria v: " + version + " DEBUG BUILD " + DEBUG_VER);
 #endif
-	consoleMenager->seperator();
+	consoleManager->seperator();
 
 	//Load font to memory
 	textureMenager->loadFont("data/Fonts/good times/good times rg.ttf");
-	consoleMenager->seperator();
+	consoleManager->seperator();
 
 	//Display a Loading message, set window color to black
 	//Create a object for Loading message
@@ -28,11 +28,11 @@ Engine::Engine()
 	window->display();
 
 	//Load all Jsons files to memory
-	JsonMenager js(consoleMenager);
+	JsonMenager js(consoleManager);
 	if (!js.loadAllJsons()) {
-		consoleMenager->errorExit("", window);
+		consoleManager->errorExit("", window);
 	}
-	consoleMenager->seperator();
+	consoleManager->seperator();
 
 	//Loading a texture
 	textureMenager->loadTexture("background", "data/background-1409125_1280.png", 0);
@@ -42,8 +42,8 @@ Engine::Engine()
 	textureMenager->loadTexture("topLeftBar", "data/Bar/Top Left Bar.png", 4);
 	textureMenager->loadTexture("topRightBar", "data/Bar/Top Right Bar.png", 5);
 	textureMenager->loadTexture("laser", "data/Laser/Laser.png", 6);
-	consoleMenager->seperator();
-	consoleMenager->log("All loaded succesful!");
+	consoleManager->seperator();
+	consoleManager->log("All loaded succesful!");
 	*gameState = MENU;
 	runMenu();
 }

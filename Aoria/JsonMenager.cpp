@@ -1,73 +1,48 @@
 #include "JsonMenager.h"
 
-JsonMenager::JsonMenager(ConsoleMenager *consoleMenager)
+JsonMenager::JsonMenager(ConsoleManager *consoleManager)
 {
-	this->consoleMenager = consoleMenager;
+	this->consoleManager = consoleManager;
+}
+
+JsonMenager::JsonMenager()
+{
 }
 
 bool JsonMenager::loadAllJsons()
 {
 	//create an iterator for json files
 	//watch for "jsonPath" folder
+	consoleManager->log("Searching for jsons in \"" + jsonsPath.u8string() + "\"","JSON LOG");
 	if (fs::is_directory(jsonsPath)) {
 		//watch all files in "jsonPatch" folder
 		for (auto& p : fs::recursive_directory_iterator("jsons")) {
 			//search and load ".json" files
-			if (pathToString(p).find(".json") != std::string::npos) {
+			if (p.path().u8string().find(".json") != std::string::npos) {
 				file.open(p);
 				string name;
 				json j;
 				file >> j;
-				bool find = false;
-
+				bool findName = false;
 				for (auto &it = j.begin(); it != j.end(); ++it) {
-					if (pathToString(it.key()).find("module") != std::string::npos && find == false) {
+					if (it.key().find("module") != std::string::npos && findName == false) {
 						name = j["module"]["name"].get<std::string>();
 						jsons[name] = j;
-						consoleMenager->log("Loaded json \"" + name + "\" from file \"" + pathToString(p) + "\"", "JSON LOG");
-
-						find = true;
+						consoleManager->log("Loaded json \"" + name + "\" from file \"" + p.path().u8string() + "\"", "JSON LOG");
+						findName = true;
 					}
 				}
-				if (!find)
-					consoleMenager->log("Cannot load \"" + pathToString(p) + "\" add { \"module\" : { \"name\": \"name\" } } to repair a problem!", "JSON WARNING");
-
-				find = false;
+				if (findName == false)
+					consoleManager->log("Cannot load \"" + p.path().u8string() + "\" add { \"module\" : { \"name\": \"Module Name\" } } to repair a problem!", "JSON WARNING");
+				
 				file.close();
 			}
-			return true;
 		}
-
-		consoleMenager->log("Folder \"" + pathToString(jsonsPath) + "\" are empty!", "JSON ERROR");
+	}
+	else
+	{
+		consoleManager->log("Folder \"" + jsonsPath.u8string() + "\" are not exist or is empty!", "JSON ERROR");
 		return false;
 	}
-
-	consoleMenager->log("Folder \"" + pathToString(jsonsPath) + "\" are not exist", "JSON ERROR");
-	return false;
-}
-/*
-for (auto it = jsons.cbegin(); it != jsons.cend(); ++it)
-{
-	std::cout << it->first << endl;
-}
-*/
-/*
-//Json test (load data from json if exist);
-consoleMenager->seperator();
-for (json::iterator it = j.begin(); it != j.end(); ++it) {
-	if (pathToString(it.key()).find("button") != std::string::npos) {
-		int a = j[it.key()]["size"].get<int>();
-		string b = j[it.key()]["color"].get<std::string>();
-		string c = j[it.key()]["buttonText"].get<std::string>();
-		if (pathToString(it.key()).find("button1") != std::string::npos) {
-			int rgb = j[it.key()]["test"]["r"].get<int>();
-			cout << "rgb: " + to_string(rgb);
-		}
-		cout << "Text: " + c + "\n" + "Color: " + b + "\n" + "Size: " + to_string(a) << endl;
-	}
-}
-*/
-std::string JsonMenager::pathToString(fs::path path)
-{
-	return path.u8string();
+	return true;
 }

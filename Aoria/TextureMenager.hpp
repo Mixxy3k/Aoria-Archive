@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <map>
-#include "ConsoleMenager.h"
+#include "ConsoleManager.h"
 
 class TextureMenager {
 private:
@@ -10,10 +10,10 @@ private:
 
 	std::map<int, sf::Texture> MapTexture;
 	std::map<int, std::string> TextureList;
-	ConsoleMenager *consoleMenager;
+	ConsoleManager *consoleManager;
 public:
-	TextureMenager(ConsoleMenager *consoleMenager) {
-		this->consoleMenager = consoleMenager;
+	TextureMenager(ConsoleManager *consoleManager) {
+		this->consoleManager = consoleManager;
 	}
 
 	sf::Texture& getTexture(int id) { return this->MapTexture.at(id); }
@@ -24,7 +24,7 @@ public:
 		//If somthing go wrong
 		if (!Texture.loadFromFile(position)) {
 			//Error message
-			consoleMenager->log("Cannot load file! + name", "ERROR");
+			consoleManager->log("Cannot load file! + name", "ERROR");
 			TextureList[ID] = "ERROR_TEXTURE!";
 			return false;
 		}
@@ -32,7 +32,7 @@ public:
 			MapTexture[ID] = Texture;
 			TextureList[ID] = name;
 #if _DEBUG 
-			consoleMenager->log(name, "LOADED" );
+			consoleManager->log(name, "LOADED" );
 #endif
 			return true;
 		}
@@ -48,7 +48,7 @@ public:
 	bool loadFont(const std::string& position) {
 		if (font.loadFromFile(position)) {
 #if _DEBUG
-			consoleMenager->log("font", "LOADED");
+			consoleManager->log("font", "LOADED");
 #endif // _DEBUG
 			return true;
 		}

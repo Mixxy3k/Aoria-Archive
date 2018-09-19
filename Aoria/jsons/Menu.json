@@ -28,9 +28,6 @@
     "buttonText": "EXIT",
     "size": 50,
     "color": "white"
-  },
-  "test": {
-    "hello": true
   }
 }
 
