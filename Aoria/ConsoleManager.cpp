@@ -4,6 +4,7 @@
 ConsoleManager::ConsoleManager(std::string version, std::string debugVersion)
 	:message()
 {
+	//Shut up SFML errors
 	sf::err().rdbuf(NULL);
 	showConsole();
 	log("Aoria v" + version + " DEBUG BUILD " + debugVersion, "");
@@ -17,10 +18,13 @@ ConsoleManager::ConsoleManager(std::string version)
 	log("Aoria v: " + version, "");
 }
 #endif // _DEBUG
+
+//Clear memory
 ConsoleManager::~ConsoleManager()
 {
 	delete logs;
 }
+
 void ConsoleManager::log(const string & message, const string & typeLog)
 {
 	//If somthing go wrong and typeLog is empty, change typeLog to "LOG:"
@@ -67,7 +71,7 @@ void ConsoleManager::showConsole()
 {
 	::ShowWindow(::GetConsoleWindow(), SW_RESTORE);
 }
-#else
+#else //Currently Aoria dont support Linux based system!
 void consoleManager::hideConsole()
 {
 	system(disdown)
