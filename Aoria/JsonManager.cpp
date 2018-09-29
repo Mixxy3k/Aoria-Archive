@@ -1,16 +1,14 @@
-#include "JsonMenager.h"
+#include "JsonManager.h"
 
-JsonMenager::JsonMenager(ConsoleManager *consoleManager)
+JsonMenager::JsonMenager(ConsoleManager *_consoleManager)
+	:consoleManager (_consoleManager), jsonsPath(fs::current_path() /= "jsons")
 {
-	this->consoleManager = consoleManager;
-}
-
-JsonMenager::JsonMenager()
-{
+	consoleManager->log("JsonMenager Created!", "MODULE LOG");
 }
 
 bool JsonMenager::loadAllJsons()
 {
+	jsons.clear();
 	//create an iterator for json files
 	//watch for "jsonPath" folder
 	consoleManager->log("Searching for jsons in \"" + jsonsPath.u8string() + "\"","JSON LOG");

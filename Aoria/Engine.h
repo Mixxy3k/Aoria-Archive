@@ -3,29 +3,30 @@
 #include "SFML/Graphics.hpp"
 #include "TextureMenager.hpp"
 #include "consoleManager.h"
-#include "JsonMenager.h"
+#include "JsonManager.h"
 
 class Engine {
 public:
-	const std::string version = "2.0";
-#if _DEBUG
-	const std::string DEBUG_VER = "1.1";
-#endif
+	Engine();
+	~Engine();
+
+	const std::string version;
 	void loadGame();
 	void windowEventMenager();
 	void runEngine();
 	void runMenu();
 
 	enum GameState { APP_ERROR, LOADING = 1, MENU, IN_GAME, };
-	GameState *gameState = new GameState;
-private:
+	GameState *gameState;
+
 #if _DEBUG
-	ConsoleManager *consoleManager = new ConsoleManager(version, DEBUG_VER);
-#else 
-	ConsoleManager *consoleManager = new ConsoleManager(version);
-#endif // _DEBUG
+	const std::string DEBUG_VER;
+#endif
+private:
+	ConsoleManager *consoleManager;
+	JsonMenager *jsonMenager;
 
 	sf::Vector2i windowResolution;
-	sf::RenderWindow *window = new sf::RenderWindow;
-	TextureMenager *textureMenager = new TextureMenager(consoleManager);
+	sf::RenderWindow *window;
+	TextureMenager *textureMenager;
 };

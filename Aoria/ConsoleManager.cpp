@@ -2,16 +2,17 @@
 
 #if _DEBUG
 ConsoleManager::ConsoleManager(std::string version, std::string debugVersion)
-	:message()
+	:message(), logs(new vector<string>)
 {
 	//Shut up SFML errors
 	sf::err().rdbuf(NULL);
 	showConsole();
 	log("Aoria v" + version + " DEBUG BUILD " + debugVersion, "");
+	log("Console Menager Loaded!", "MODULE LOG");
 }
 #else
 ConsoleManager::ConsoleManager(std::string version)
-	:message()
+	:message(), logs(new vector<string>)
 {
 	sf::err().rdbuf(NULL);
 	hideConsole();
@@ -22,7 +23,7 @@ ConsoleManager::ConsoleManager(std::string version)
 //Clear memory
 ConsoleManager::~ConsoleManager()
 {
-	delete logs;
+	if(logs != NULL) delete logs;
 }
 
 void ConsoleManager::log(const string & message, const string & typeLog)
@@ -47,7 +48,18 @@ void ConsoleManager::log(const string & message, const string & typeLog)
 
 void ConsoleManager::seperator()
 {
-	cout << "--------------------" << endl;
+	cout << "-----------------------------------" << endl;
+}
+
+void ConsoleManager::new_line(int lines)
+{
+	if (lines < 1)
+	{
+		log("To lov intiger!", "WARNING");
+		return;
+	}
+	for (auto i = 0; i < lines; i++) 
+		cout << endl;
 }
 
 void ConsoleManager::errorExit(string errorText, sf::RenderWindow * window)

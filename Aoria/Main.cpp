@@ -8,7 +8,9 @@ int main() {
 #else
 	std::cerr << "NOT 64 BIT WINDOWS! [App is only 64 bit]]" << std::endl;
 #endif
-	Engine engine;
-	engine.loadGame();
+	Engine *engine = new Engine();
+	engine->loadGame();
+	delete engine;
+	cout << "Session end!" << endl;
 	return 0;
 }

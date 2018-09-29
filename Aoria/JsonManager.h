@@ -14,11 +14,10 @@ using namespace std;
 class JsonMenager {
 public:
 	JsonMenager(ConsoleManager *consoleManager);
-	JsonMenager();
 	bool loadAllJsons();
 private:
 	ConsoleManager *consoleManager;
 	std::map<std::string, json> jsons;
 	std::fstream file;
-	fs::path jsonsPath = fs::current_path() /= "jsons";
+	fs::path jsonsPath; 
 };

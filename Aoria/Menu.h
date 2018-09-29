@@ -2,12 +2,17 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <map>
+#include "JsonManager.h"
 
 using namespace std;
 
 class Menu {
 public:
-	Menu(sf::RenderWindow *window, sf::Vector2i windowResolution) {
+	Menu(sf::RenderWindow *window, sf::Vector2i windowResolution, JsonMenager *_jsonMenager) 
+		:window (window), windowResolution (windowResolution)
+	{
+		JsonMenager * jsonMenager = _jsonMenager;
+
 		this->window = window;
 		this->windowResolution = windowResolution;
 	}

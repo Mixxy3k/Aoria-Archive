@@ -21,14 +21,14 @@
   <ItemGroup>
     <ClCompile Include="ConsoleManager.cpp" />
     <ClCompile Include="Engine.cpp" />
-    <ClCompile Include="JsonMenager.cpp" />
+    <ClCompile Include="JsonManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Menu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h" />
     <ClInclude Include="ConsoleManager.h" />
-    <ClInclude Include="JsonMenager.h" />
+    <ClInclude Include="JsonManager.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="TextureMenager.hpp" />
   </ItemGroup>

@@ -23,49 +23,61 @@
     <Filter Include="Code\Engine &amp; textures">
       <UniqueIdentifier>{8addf97d-50f7-4a53-8b9e-d23b3c094eb9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="jsons">
+    <Filter Include="Code\Engine &amp; textures\Engine">
+      <UniqueIdentifier>{d9a0fd2c-90f7-44b7-bfad-fe5948ac18e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\Engine &amp; textures\Console Manager">
+      <UniqueIdentifier>{56da1962-e979-4bbf-920b-fa0e5d6913c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\Engine &amp; textures\JsonsManager">
+      <UniqueIdentifier>{ae721d3a-5c9b-4306-a282-969a6008bd7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\Engine &amp; textures\Menu">
+      <UniqueIdentifier>{4c456e6e-bd65-4c48-b9fc-21d7731c88ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\Engine &amp; textures\JsonsManager\jsons">
       <UniqueIdentifier>{9f04c31d-ab2c-450d-9965-fe98632772e9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Engine.cpp">
-      <Filter>Code\Engine &amp; textures</Filter>
-    </ClCompile>
-    <ClCompile Include="Menu.cpp">
-      <Filter>Code\Engine &amp; textures</Filter>
-    </ClCompile>
-    <ClCompile Include="JsonMenager.cpp">
-      <Filter>Code\Engine &amp; textures</Filter>
-    </ClCompile>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ConsoleManager.cpp">
-      <Filter>Code\Engine &amp; textures</Filter>
+      <Filter>Code\Engine &amp; textures\Console Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Code\Engine &amp; textures\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="JsonManager.cpp">
+      <Filter>Code\Engine &amp; textures\JsonsManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Code\Engine &amp; textures\Menu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine.h">
-      <Filter>Code\Engine &amp; textures</Filter>
-    </ClInclude>
     <ClInclude Include="TextureMenager.hpp">
       <Filter>Code\Engine &amp; textures</Filter>
     </ClInclude>
-    <ClInclude Include="Menu.h">
-      <Filter>Code\Engine &amp; textures</Filter>
-    </ClInclude>
-    <ClInclude Include="JsonMenager.h">
-      <Filter>Code\Engine &amp; textures</Filter>
-    </ClInclude>
     <ClInclude Include="ConsoleManager.h">
-      <Filter>Code\Engine &amp; textures</Filter>
+      <Filter>Code\Engine &amp; textures\Console Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Code\Engine &amp; textures\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="JsonManager.h">
+      <Filter>Code\Engine &amp; textures\JsonsManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Code\Engine &amp; textures\Menu</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md" />
     <None Include="jsons\Menu.json">
-      <Filter>jsons</Filter>
+      <Filter>Code\Engine &amp; textures\JsonsManager\jsons</Filter>
     </None>
     <None Include="jsons\test2.json">
-      <Filter>jsons</Filter>
+      <Filter>Code\Engine &amp; textures\JsonsManager\jsons</Filter>
     </None>
   </ItemGroup>
 </Project>

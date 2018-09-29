@@ -12,8 +12,10 @@ private:
 	std::map<int, std::string> TextureList;
 	ConsoleManager *consoleManager;
 public:
-	TextureMenager(ConsoleManager *consoleManager) {
-		this->consoleManager = consoleManager;
+	TextureMenager(ConsoleManager *_consoleManager)
+		:consoleManager (_consoleManager)
+	{
+		consoleManager->log("Texture Menager Loaded!", "MODULE LOG");
 	}
 
 	sf::Texture& getTexture(int id) { return this->MapTexture.at(id); }

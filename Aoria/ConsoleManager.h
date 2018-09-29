@@ -23,9 +23,10 @@ public:
 
 	void log(const string &message, const string &typeLog = "LOG");
 	void seperator();
+	void new_line(int lines = 1);
 
 	void errorExit(string errorText, sf::RenderWindow *window);
 private:
 	string message;
-	vector<string> *logs = new vector<string>;
+	vector<string> *logs;
 };
