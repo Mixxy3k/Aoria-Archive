@@ -5,6 +5,7 @@
 #include <string>
 #include <filesystem>
 #include <map>
+#include <vector>
 #include "ConsoleManager.h"
 
 using json = nlohmann::json;
@@ -16,6 +17,7 @@ public:
 	JsonMenager(ConsoleManager *consoleManager);
 	bool loadAllJsons();
 private:
+	std::string getDataFromJson(const string jsonName,const std::string name,std::vector<string> subname );
 	ConsoleManager *consoleManager;
 	std::map<std::string, json> jsons;
 	std::fstream file;

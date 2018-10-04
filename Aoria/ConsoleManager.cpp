@@ -55,7 +55,9 @@ void ConsoleManager::new_line(int lines)
 {
 	if (lines < 1)
 	{
-		log("To lov intiger!", "WARNING");
+		cout << endl;
+		log("Cannot create a " + to_string(lines) +" lines", "WARNING");
+		cout << endl;
 		return;
 	}
 	for (auto i = 0; i < lines; i++) 

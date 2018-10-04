@@ -4,6 +4,10 @@ JsonMenager::JsonMenager(ConsoleManager *_consoleManager)
 	:consoleManager (_consoleManager), jsonsPath(fs::current_path() /= "jsons")
 {
 	consoleManager->log("JsonMenager Created!", "MODULE LOG");
+
+	//test
+
+	loadAllJsons();
 }
 
 bool JsonMenager::loadAllJsons()
@@ -43,4 +47,44 @@ bool JsonMenager::loadAllJsons()
 		return false;
 	}
 	return true;
+}
+
+std::string JsonMenager::getDataFromJson(const string jsonName, const std::string name, std::vector<string> subname)
+{
+	json j = jsons[jsonName];
+	bool findName = false;
+	string s = "NONE";
+	string jsonAsString = j.dump();
+	auto subnameItems = subname.size();
+	int i = 0;
+	for (auto &it = jsons[jsonName].begin(); it != jsons[jsonName].end(); ++it) {
+		if (it.key() == name)
+		{
+			if (jsonAsString.find(subname.back()) != std::string::npos)
+			{
+				consoleManager->log(to_string(i));
+				if (subnameItems == 1) {
+					s = j[name][subname.back()].get<std::string>();
+				}
+				else if (subnameItems == 2) {
+					s = j[name][(&subname.back())[-1]][subname.back()].get<std::string>();
+				}
+				else if (subnameItems == 3) {
+					s = j[name][(&subname.back())[-2]][(&subname.back())[-1]][subname.back()].get<std::string>();
+				}
+				else if (subnameItems == 4) {
+					s = j[name][(&subname.back())[-3]][(&subname.back())[-2]][(&subname.back())[-1]]
+						[subname.back()].get<std::string>();
+				}
+				else
+				{
+					consoleManager->log("JSON Tree is to big!", "JSON WARNING!");
+				}
+				++i;
+			}
+		}
+	}
+	if (findName == false)
+		consoleManager->log("Cannot find \"" + name + "\" in " + jsonName, "JSON WARNING");
+	return s;
 }

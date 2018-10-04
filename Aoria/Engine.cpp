@@ -55,7 +55,7 @@ void Engine::loadGame()
 	consoleManager->seperator();
 	consoleManager->log("Loading jsons!");
 	consoleManager->new_line();
-	jsonMenager->loadAllJsons();
+	//jsonMenager->loadAllJsons();
 
 	consoleManager->seperator();
 	consoleManager->log("Loading font and textures!");
